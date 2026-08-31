@@ -1,0 +1,18 @@
+# Secrets — never commit
+rcon.pass
+discord-state.json
+*.token
+
+# Runtime data / state
+*.db
+*.db-wal
+*.db-shm
+boss-watch-state.json
+pending-afk-update.json
+
+# Python cruft
+__pycache__/
+*.pyc
+
+# Decompiled reference dumps (large, regenerable)
+javap/

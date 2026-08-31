@@ -1,0 +1,27 @@
+{
+  "job_token": "Azf05g4OjLm39Z0owN2QLgUicdEri8yXC81VYw2NvjI",
+  "engine": "microwakeword",
+  "wake_word": "hey hermes",
+  "params_effective": {
+    "n_samples": 200000,
+    "training_steps": 20000,
+    "augmentation_rounds": 3,
+    "languages": [
+      {
+        "code": "en_US",
+        "percentage": 100
+      }
+    ],
+    "keep_private": true,
+    "tier": "standard"
+  },
+  "quote": {
+    "credits": 2250,
+    "chf": 7.72,
+    "currency": "CHF"
+  },
+  "status": "awaiting_payment",
+  "payment_window_hours": 24,
+  "next_step": "POST /api/agent/jobs/{job_token}/pay with {\"method\": \"card\"} or {\"method\": \"crypto\"} to receive a checkout URL",
+  "note": "The trained model stays PRIVATE: never listed, retrievable only with this job_token, no time limit \u2014 the token is the single key, do not lose it. Store job_token safely \u2014 it is the only credential for this job."
+}

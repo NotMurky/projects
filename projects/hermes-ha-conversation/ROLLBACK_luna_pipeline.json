@@ -1,0 +1,13 @@
+{
+  "name": "Luna",
+  "conversation_engine": "conversation.luna",
+  "conversation_language": "*",
+  "stt_engine": "stt.faster_whisper",
+  "stt_language": "en",
+  "tts_engine": "tts.voicebox_luna",
+  "tts_voice": "Luna",
+  "tts_language": "en",
+  "wake_word_entity": null,
+  "wake_word_id": null,
+  "id": "01m17a09dfthf7sb434ytdj8ff"
+}

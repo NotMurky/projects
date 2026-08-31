@@ -1,0 +1,29 @@
+[Unit]
+Description=<BOT_NAME_REDACTED> /damage slash-command bridge for Prominence
+After=network-online.target prominence-hours-tracker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=<USERNAME_REDACTED>
+Group=<USERNAME_REDACTED>
+WorkingDirectory=/home/<USERNAME_REDACTED>/prominence-hours
+ExecStart=/home/<USERNAME_REDACTED>/jarvis-discord-relay/.venv/bin/python /home/<USERNAME_REDACTED>/prominence-hours/damage_discord.py
+Restart=on-failure
+RestartSec=15
+Environment=RCON_HOST=<INTERNAL_IP_REDACTED>.11
+Environment=RCON_PORT=25575
+Environment=RCON_PASSWORD_FILE=/home/<USERNAME_REDACTED>/prominence-hours/rcon.pass
+Environment=VELOCITY_DISCORD_CONFIG=/data/compose/13/docker/servers/43ac65de-795f-443f-9cc5-2aecc7447a05/plugins/discord/config.toml
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/<USERNAME_REDACTED>/prominence-hours
+ReadOnlyPaths=/data/compose/13/docker/servers/43ac65de-795f-443f-9cc5-2aecc7447a05/plugins/discord/config.toml
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+LockPersonality=true
+
+[Install]
+WantedBy=multi-user.target

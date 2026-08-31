@@ -1,0 +1,36 @@
+{
+  "auto_update": false,
+  "protected_paths": [
+    "importantmods/",
+    "fabric.jar",
+    "server.properties",
+    "variables.txt",
+    "world/",
+    "worldnopregen/"
+  ],
+  "protected_entries": [
+    "mods/crossstitch-0.1.6 (1).jar",
+    "mods/darktimer-fabric-1.20.1-1.1.9 (1).jar",
+    "mods/FabricProxy-Lite-2.6.0 (1).jar",
+    "config/FabricProxy-Lite.toml",
+    "mods/yeptwo-2.0.2+1.20.1+fabric (1).jar",
+    "variables.txt",
+    "worldnopregen/",
+    "world/",
+    "mods/prominence-damage-tracker-1.0.0.jar"
+  ],
+  "protect_job": {
+    "path": "mods/prominence-damage-tracker-1.0.0.jar",
+    "copied": 1,
+    "total": 1,
+    "status": "done",
+    "error_msg": null
+  },
+  "last_check": null,
+  "last_result": "\ud83d\udd12 Protected 1 file(s): mods/prominence-damage-tracker-1.0.0.jar",
+  "server_pack_url": "",
+  "installed_version": "4.0.3",
+  "installed_version_override": "4.0.3",
+  "candidate_version": null,
+  "candidate_archive": null
+}

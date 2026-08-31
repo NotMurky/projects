@@ -1,0 +1,17 @@
+[Unit]
+Description=Apply pending Prominence AFK update when server is empty
+After=network-online.target prominence-hours-tracker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /home/<USERNAME_REDACTED>/prominence-hours/apply_pending_afk_update.py
+User=root
+Group=root
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadOnlyPaths=/home/<USERNAME_REDACTED>/prominence-hours
+ReadWritePaths=/home/<USERNAME_REDACTED>/prominence-hours /etc/systemd/system/prominence-hours-tracker.service.d
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+LockPersonality=true

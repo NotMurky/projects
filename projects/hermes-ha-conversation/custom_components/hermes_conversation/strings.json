@@ -1,0 +1,22 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect Home Assistant to Hermes Agent",
+        "description": "Uses a protected local API connection. The credential is stored in Home Assistant's config entry storage.",
+        "data": {
+          "base_url": "Hermes API URL",
+          "api_key": "API bearer key",
+          "timeout_seconds": "Maximum response time (seconds)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Unable to connect to the local Hermes API.",
+      "invalid_auth": "The Hermes API rejected the bearer key."
+    },
+    "abort": {
+      "already_configured": "Hermes Agent is already configured."
+    }
+  }
+}

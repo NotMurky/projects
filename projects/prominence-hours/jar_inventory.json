@@ -1,0 +1,3307 @@
+{
+  "Spell Engine": [
+    {
+      "path": "/data/compose/13/docker/servers/50a6d163-0309-4832-986f-106668768b3d/mods/spell_engine-0.15.12+1.20.1.jar",
+      "metadata": {
+        "fabric.mod.json": "{\n  \"schemaVersion\": 1,\n  \"id\": \"spell_engine\",\n  \"version\": \"0.15.12+1.20.1\",\n  \"name\": \"Spell Engine\",\n  \"description\": \"Data driven magic library.\",\n  \"authors\": [\n    \"Daedelus\"\n  ],\n  \"contact\": {\n    \"repo\": \"https://github.com/ZsoltMolnarrr/SpellEngine\",\n    \"issues\": \"https://github.com/ZsoltMolnarrr/SpellEngine/issues\"\n  },\n  \"license\": \"GPL-3.0\",\n  \"icon\": \"icon.png\",\n  \"environment\": \"*\",\n  \"accessWidener\": \"spell_engine.accesswidener\",\n  \"entrypoints\": {\n    \"client\": [\n      \"net.spell_engine.fabric.client.FabricClientMod\"\n    ],\n    \"main\": [\n      \"net.spell_engine.fabric.FabricMod\"\n    ],\n    \"modmenu\": [\n      \"net.spell_engine.client.compatibility.ModMenuCompatibility\"\n    ],\n    \"dynamiclights\": [\n      \"net.spell_engine.client.compatibility.DynamicLightsCompatibility\"\n    ]\n  },\n  \"mixins\": [\n    \"spell_engine.mixins.json\"\n  ],\n  \"depends\": {\n    \"minecraft\": \"\\u003e\\u003d1.20.0\",\n    \"fabricloader\": \"\\u003e\\u003d0.14.10\",\n    \"fabric\": \"\\u003e\\u003d0.92.2+1.20.1\",\n    \"cloth-config\": \"\\u003e\\u003d11.1.106\",\n    \"player-animator\": \"\\u003e\\u003d0.9.9\",\n    \"spell_power\": \"\\u003e\\u003d0.12.0+1.20.1\"\n  },\n  \"recommends\": {\n    \"trinkets\": \"*\"\n  },\n  \"custom\": {\n    \"modmenu\": {\n      \"links\": {\n        \"modmenu.discord\": \"https://discord.gg/KN9b3pjFTM\"\n      }\n    }\n  },\n  \"jars\": [\n    {\n      \"file\": \"META-INF/jars/TinyConfig-2.3.2.jar\"\n    }\n  ]\n}",
+        "META-INF/MANIFEST.MF": "Manifest-Version: 1.0\r\nFabric-Jar-Type: classes\r\nFabric-Loom-Mixin-Remap-Type: mixin\r\nFabric-Gradle-Version: 8.7\r\nFabric-Loom-Version: 1.5.8\r\nFabric-Mixin-Compile-Extensions-Version: 0.6.0\r\nFabric-Minecraft-Version: 1.20.1\r\nFabric-Tiny-Remapper-Version: 0.10.0\r\nFabric-Loader-Version: 0.15.7\r\nFabric-Mixin-Version: 0.12.5+mixin.0.8.5\r\nFabric-Mixin-Group: net.fabricmc\r\nFabric-Mapping-Namespace: intermediary\r\n\r\n"
+      },
+      "candidate_classes": [
+        "net.spell_engine.SpellEngineMod",
+        "net.spell_engine.api.effect.ActionImpairing",
+        "net.spell_engine.api.effect.CustomModelStatusEffect$Renderer",
+        "net.spell_engine.api.effect.CustomModelStatusEffect",
+        "net.spell_engine.api.effect.CustomParticleStatusEffect$Spawner",
+        "net.spell_engine.api.effect.CustomParticleStatusEffect",
+        "net.spell_engine.api.effect.EntityActionsAllowed$1",
+        "net.spell_engine.api.effect.EntityActionsAllowed$Common",
+        "net.spell_engine.api.effect.EntityActionsAllowed$ControlledEntity",
+        "net.spell_engine.api.effect.EntityActionsAllowed$Mob",
+        "net.spell_engine.api.effect.EntityActionsAllowed$MobsAllowed",
+        "net.spell_engine.api.effect.EntityActionsAllowed$Player",
+        "net.spell_engine.api.effect.EntityActionsAllowed$PlayersAllowed",
+        "net.spell_engine.api.effect.EntityActionsAllowed$SemanticType",
+        "net.spell_engine.api.effect.EntityActionsAllowed",
+        "net.spell_engine.api.effect.EntityImmunity$Type",
+        "net.spell_engine.api.effect.EntityImmunity",
+        "net.spell_engine.api.effect.HealthImpacting",
+        "net.spell_engine.api.effect.RemoveOnHit",
+        "net.spell_engine.api.effect.Synchronized$Effect",
+        "net.spell_engine.api.effect.Synchronized$Provider",
+        "net.spell_engine.api.effect.Synchronized",
+        "net.spell_engine.api.enchantment.Enchantments_SpellEngine",
+        "net.spell_engine.api.entity.SpellSpawnedEntity",
+        "net.spell_engine.api.entity.TwoWayCollisionChecker$CollisionResult",
+        "net.spell_engine.api.entity.TwoWayCollisionChecker",
+        "net.spell_engine.api.event.CombatEvents$EntityAttack$Args",
+        "net.spell_engine.api.event.CombatEvents$EntityAttack",
+        "net.spell_engine.api.event.CombatEvents$ItemUse$Args",
+        "net.spell_engine.api.event.CombatEvents$ItemUse$Stage",
+        "net.spell_engine.api.event.CombatEvents$ItemUse",
+        "net.spell_engine.api.event.CombatEvents$SpellCast$Args",
+        "net.spell_engine.api.event.CombatEvents$SpellCast",
+        "net.spell_engine.api.event.CombatEvents",
+        "net.spell_engine.api.event.Event",
+        "net.spell_engine.api.item.AttributeResolver",
+        "net.spell_engine.api.item.ConfigurableAttributes",
+        "net.spell_engine.api.item.ItemConfig$ArmorSet$Piece",
+        "net.spell_engine.api.item.ItemConfig$ArmorSet",
+        "net.spell_engine.api.item.ItemConfig$Attribute",
+        "net.spell_engine.api.item.ItemConfig$Weapon",
+        "net.spell_engine.api.item.ItemConfig",
+        "net.spell_engine.api.item.armor.Armor$1",
+        "net.spell_engine.api.item.armor.Armor$CustomMaterial",
+        "net.spell_engine.api.item.armor.Armor$Entry",
+        "net.spell_engine.api.item.armor.Armor$Set",
+        "net.spell_engine.api.item.armor.Armor",
+        "net.spell_engine.api.item.trinket.SpellBookItem",
+        "net.spell_engine.api.item.trinket.SpellBookTrinketItem",
+        "net.spell_engine.api.item.trinket.SpellBookVanillaItem",
+        "net.spell_engine.api.item.trinket.SpellBooks",
+        "net.spell_engine.api.item.weapon.MeleeWeaponItem",
+        "net.spell_engine.api.item.weapon.SpellSwordItem",
+        "net.spell_engine.api.item.weapon.SpellWeaponItem",
+        "net.spell_engine.api.item.weapon.StaffItem",
+        "net.spell_engine.api.item.weapon.Weapon$CustomMaterial",
+        "net.spell_engine.api.item.weapon.Weapon$Entry",
+        "net.spell_engine.api.item.weapon.Weapon$ItemAccessor",
+        "net.spell_engine.api.item.weapon.Weapon",
+        "net.spell_engine.api.loot.LootConfig$ItemGroup$Enchant",
+        "net.spell_engine.api.loot.LootConfig$ItemGroup",
+        "net.spell_engine.api.loot.LootConfig",
+        "net.spell_engine.api.loot.LootConfigV2$Pool$Entry$Enchant",
+        "net.spell_engine.api.loot.LootConfigV2$Pool$Entry",
+        "net.spell_engine.api.loot.LootConfigV2$Pool",
+        "net.spell_engine.api.loot.LootConfigV2",
+        "net.spell_engine.api.loot.LootHelper$TagCache",
+        "net.spell_engine.api.loot.LootHelper",
+        "net.spell_engine.api.render.CustomLayers$1",
+        "net.spell_engine.api.render.CustomLayers",
+        "net.spell_engine.api.render.CustomModels",
+        "net.spell_engine.api.render.LightEmission",
+        "net.spell_engine.api.render.OrbitingEffectRenderer$Model",
+        "net.spell_engine.api.render.OrbitingEffectRenderer",
+        "net.spell_engine.api.render.StunParticleSpawner",
+        "net.spell_engine.api.spell.CustomSpellHandler$Data",
+        "net.spell_engine.api.spell.CustomSpellHandler",
+        "net.spell_engine.api.spell.ExternalSpellSchools",
+        "net.spell_engine.api.spell.ParticleBatch$Origin",
+        "net.spell_engine.api.spell.ParticleBatch$Rotation",
+        "net.spell_engine.api.spell.ParticleBatch$Shape",
+        "net.spell_engine.api.spell.ParticleBatch",
+        "net.spell_engine.api.spell.Sound",
+        "net.spell_engine.api.spell.Spell$AreaImpact$ExtraRadius",
+        "net.spell_engine.api.spell.Spell$AreaImpact",
+        "net.spell_engine.api.spell.Spell$ArrowPerks",
+        "net.spell_engine.api.spell.Spell$Cast",
+        "net.spell_engine.api.spell.Spell$Cost",
+        "net.spell_engine.api.spell.Spell$EntityPlacement",
+        "net.spell_engine.api.spell.Spell$Impact$Action$Damage",
+        "net.spell_engine.api.spell.Spell$Impact$Action$Fire",
+        "net.spell_engine.api.spell.Spell$Impact$Action$Heal",
+        "net.spell_engine.api.spell.Spell$Impact$Action$Spawn",
+        "net.spell_engine.api.spell.Spell$Impact$Action$StatusEffect$ApplyLimit",
+        "net.spell_engine.api.spell.Spell$Impact$Action$StatusEffect$ApplyMode",
+        "net.spell_engine.api.spell.Spell$Impact$Action$StatusEffect",
+        "net.spell_engine.api.spell.Spell$Impact$Action$Teleport$BehindTarget",
+        "net.spell_engine.api.spell.Spell$Impact$Action$Teleport$Forward",
+        "net.spell_engine.api.spell.Spell$Impact$Action$Teleport$Mode",
+        "net.spell_engine.api.spell.Spell$Impact$Action$Teleport",
+        "net.spell_engine.api.spell.Spell$Impact$Action$Type",
+        "net.spell_engine.api.spell.Spell$Impact$Action",
+        "net.spell_engine.api.spell.Spell$Impact",
+        "net.spell_engine.api.spell.Spell$ItemUse",
+        "net.spell_engine.api.spell.Spell$LaunchProperties",
+        "net.spell_engine.api.spell.Spell$Learn",
+        "net.spell_engine.api.spell.Spell$Mode",
+        "net.spell_engine.api.spell.Spell$ProjectileData$Client",
+        "net.spell_engine.api.spell.Spell$ProjectileData$Perks",
+        "net.spell_engine.api.spell.Spell$ProjectileData",
+        "net.spell_engine.api.spell.Spell$ProjectileModel$Orientation",
+        "net.spell_engine.api.spell.Spell$ProjectileModel",
+        "net.spell_engine.api.spell.Spell$Release$Target$Area$DropoffCurve",
+        "net.spell_engine.api.spell.Spell$Release$Target$Area",
+        "net.spell_engine.api.spell.Spell$Release$Target$Beam",
+        "net.spell_engine.api.spell.Spell$Release$Target$Cloud$ClientData",
+        "net.spell_engine.api.spell.Spell$Release$Target$Cloud$Spawn",
+        "net.spell_engine.api.spell.Spell$Release$Target$Cloud",
+        "net.spell_engine.api.spell.Spell$Release$Target$Cursor",
+        "net.spell_engine.api.spell.Spell$Release$Target$Meteor",
+        "net.spell_engine.api.spell.Spell$Release$Target$ShootArrow",
+        "net.spell_engine.api.spell.Spell$Release$Target$ShootProjectile",
+        "net.spell_engine.api.spell.Spell$Release$Target$Type",
+        "net.spell_engine.api.spell.Spell$Release$Target",
+        "net.spell_engine.api.spell.Spell$Release",
+        "net.spell_engine.api.spell.Spell",
+        "net.spell_engine.api.spell.SpellContainer$ContentType",
+        "net.spell_engine.api.spell.SpellContainer",
+        "net.spell_engine.api.spell.SpellEvents$ArrowLaunch",
+        "net.spell_engine.api.spell.SpellEvents$ArrowLaunchEvent",
+        "net.spell_engine.api.spell.SpellEvents$ProjectileLaunch",
+        "net.spell_engine.api.spell.SpellEvents$ProjectileLaunchEvent",
+        "net.spell_engine.api.spell.SpellEvents",
+        "net.spell_engine.api.spell.SpellInfo",
+        "net.spell_engine.api.spell.SpellPool$DataFormat",
+        "net.spell_engine.api.spell.SpellPool$SyncFormat",
+        "net.spell_engine.api.spell.SpellPool",
+        "net.spell_engine.client.ClientNetwork",
+        "net.spell_engine.client.SpellEngineClient",
+        "net.spell_engine.client.animation.AnimatablePlayer",
+        "net.spell_engine.client.animation.AnimationRegistry",
+        "net.spell_engine.client.animation.AnimationSubStack",
+        "net.spell_engine.client.animation.StateCollectionHelper",
+        "net.spell_engine.client.beam.BeamEmitterEntity",
+        "net.spell_engine.client.compatibility.DynamicLightsCompatibility",
+        "net.spell_engine.client.compatibility.FirstPersonModelCompatibility",
+        "net.spell_engine.client.compatibility.ModMenuCompatibility",
+        "net.spell_engine.client.compatibility.ShaderCompatibility",
+        "net.spell_engine.client.compatibility.ShoulderSurfingCompatibility",
+        "net.spell_engine.client.gui.ConfigMenuScreen",
+        "net.spell_engine.client.gui.CustomButton$1",
+        "net.spell_engine.client.gui.CustomButton$Type",
+        "net.spell_engine.client.gui.CustomButton",
+        "net.spell_engine.client.gui.Drawable$1",
+        "net.spell_engine.client.gui.Drawable$Anchor",
+        "net.spell_engine.client.gui.Drawable$Component",
+        "net.spell_engine.client.gui.Drawable$DrawRect",
+        "net.spell_engine.client.gui.Drawable$Texture",
+        "net.spell_engine.client.gui.Drawable",
+        "net.spell_engine.client.gui.HudConfigScreen$1",
+        "net.spell_engine.client.gui.HudConfigScreen$Direction",
+        "net.spell_engine.client.gui.HudConfigScreen$Dragged",
+        "net.spell_engine.client.gui.HudConfigScreen$Part",
+        "net.spell_engine.client.gui.HudConfigScreen",
+        "net.spell_engine.client.gui.HudElement$1",
+        "net.spell_engine.client.gui.HudElement$Origin",
+        "net.spell_engine.client.gui.HudElement",
+        "net.spell_engine.client.gui.HudKeyVisuals",
+        "net.spell_engine.client.gui.HudMessages$1",
+        "net.spell_engine.client.gui.HudMessages$ErrorMessageState",
+        "net.spell_engine.client.gui.HudMessages",
+        "net.spell_engine.client.gui.HudRenderHelper$1",
+        "net.spell_engine.client.gui.HudRenderHelper$CastBarWidget$PART",
+        "net.spell_engine.client.gui.HudRenderHelper$CastBarWidget$ViewModel",
+        "net.spell_engine.client.gui.HudRenderHelper$CastBarWidget",
+        "net.spell_engine.client.gui.HudRenderHelper$ErrorMessageWidget$ViewModel",
+        "net.spell_engine.client.gui.HudRenderHelper$ErrorMessageWidget",
+        "net.spell_engine.client.gui.HudRenderHelper$SpellHotBarWidget$KeyBindingViewModel",
+        "net.spell_engine.client.gui.HudRenderHelper$SpellHotBarWidget$SpellViewModel",
+        "net.spell_engine.client.gui.HudRenderHelper$SpellHotBarWidget$ViewModel",
+        "net.spell_engine.client.gui.HudRenderHelper$SpellHotBarWidget",
+        "net.spell_engine.client.gui.HudRenderHelper$TargetWidget$ViewModel",
+        "net.spell_engine.client.gui.HudRenderHelper$TargetWidget",
+        "net.spell_engine.client.gui.HudRenderHelper",
+        "net.spell_engine.client.gui.SpellTooltip$1",
+        "net.spell_engine.client.gui.SpellTooltip$DescriptionMutator$Args",
+        "net.spell_engine.client.gui.SpellTooltip$DescriptionMutator",
+        "net.spell_engine.client.gui.SpellTooltip",
+        "net.spell_engine.client.input.AutoSwapHelper",
+        "net.spell_engine.client.input.Keybindings$Wrapped",
+        "net.spell_engine.client.input.Keybindings",
+        "net.spell_engine.client.input.SpellHotbar$1",
+        "net.spell_engine.client.input.SpellHotbar$Handle",
+        "net.spell_engine.client.input.SpellHotbar$Slot",
+        "net.spell_engine.client.input.SpellHotbar$StructuredSlots",
+        "net.spell_engine.client.input.SpellHotbar$UseCase",
+        "net.spell_engine.client.input.SpellHotbar",
+        "net.spell_engine.client.input.WrappedKeybinding$1",
+        "net.spell_engine.client.input.WrappedKeybinding$Category",
+        "net.spell_engine.client.input.WrappedKeybinding$Unwrapped",
+        "net.spell_engine.client.input.WrappedKeybinding$VanillaAlternative",
+        "net.spell_engine.client.input.WrappedKeybinding",
+        "net.spell_engine.client.particle.GenericSparkParticle",
+        "net.spell_engine.client.particle.GenericSpellParticle$ArcaneSparkFactory",
+        "net.spell_engine.client.particle.GenericSpellParticle$ArcaneSpellFactory",
+        "net.spell_engine.client.particle.GenericSpellParticle$HolySpellFactory",
+        "net.spell_engine.client.particle.GenericSpellParticle$SpellFactory",
+        "net.spell_engine.client.particle.GenericSpellParticle",
+        "net.spell_engine.client.particle.ShiftedParticle$RootsFactory",
+        "net.spell_engine.client.particle.ShiftedParticle",
+        "net.spell_engine.client.particle.SpellExplosionParticle$Factory",
+        "net.spell_engine.client.particle.SpellExplosionParticle",
+        "net.spell_engine.client.particle.SpellFlameParticle$AnimatedFlameFactory",
+        "net.spell_engine.client.particle.SpellFlameParticle$BuffFactory",
+        "net.spell_engine.client.particle.SpellFlameParticle$BuffRageFactory",
+        "net.spell_engine.client.particle.SpellFlameParticle$ColorableFactory",
+        "net.spell_engine.client.particle.SpellFlameParticle$ColoredAnimatedFactory",
+        "net.spell_engine.client.particle.SpellFlameParticle$ElectricSparkFactory",
+        "net.spell_engine.client.particle.SpellFlameParticle$FlameFactory",
+        "net.spell_engine.client.particle.SpellFlameParticle$FrostShard",
+        "net.spell_engine.client.particle.SpellFlameParticle$HealingFactory",
+        "net.spell_engine.client.particle.SpellFlameParticle$HolyFactory",
+        "net.spell_engine.client.particle.SpellFlameParticle$MediumFlameFactory",
+        "net.spell_engine.client.particle.SpellFlameParticle$NatureFactory",
+        "net.spell_engine.client.particle.SpellFlameParticle$NatureSlowingFactory",
+        "net.spell_engine.client.particle.SpellFlameParticle$PopupSignFactory",
+        "net.spell_engine.client.particle.SpellFlameParticle$RageSignFactory",
+        "net.spell_engine.client.particle.SpellFlameParticle$SmokeFactory",
+        "net.spell_engine.client.particle.SpellFlameParticle$WeaknessSmokeFactory",
+        "net.spell_engine.client.particle.SpellFlameParticle$WhiteFactory",
+        "net.spell_engine.client.particle.SpellFlameParticle",
+        "net.spell_engine.client.particle.SpellHitParticle$ArcaneFactory",
+        "net.spell_engine.client.particle.SpellHitParticle$FrostFactory",
+        "net.spell_engine.client.particle.SpellHitParticle$GenericFactory",
+        "net.spell_engine.client.particle.SpellHitParticle$HolyFactory",
+        "net.spell_engine.client.particle.SpellHitParticle",
+        "net.spell_engine.client.particle.SpellSnowflakeParticle$DrippingBloodFactory",
+        "net.spell_engine.client.particle.SpellSnowflakeParticle$FrostFactory",
+        "net.spell_engine.client.particle.SpellSnowflakeParticle$HolyFactory",
+        "net.spell_engine.client.particle.SpellSnowflakeParticle$RootsFactory",
+        "net.spell_engine.client.particle.SpellSnowflakeParticle",
+        "net.spell_engine.client.render.BeamRenderer",
+        "net.spell_engine.client.render.CustomModelRegistry",
+        "net.spell_engine.client.render.FlyingSpellEntity",
+        "net.spell_engine.client.render.ModelPredicateHelper",
+        "net.spell_engine.client.render.SpellBindingBlockEntityRenderer",
+        "net.spell_engine.client.render.SpellCloudRenderer",
+        "net.spell_engine.client.render.SpellModelHelper",
+        "net.spell_engine.client.render.SpellProjectileRenderer$1",
+        "net.spell_engine.client.render.SpellProjectileRenderer",
+        "net.spell_engine.client.sound.SpellCastingSound$Listener",
+        "net.spell_engine.client.sound.SpellCastingSound",
+        "net.spell_engine.client.util.Color",
+        "net.spell_engine.client.util.Rect",
+        "net.spell_engine.client.util.SpellRender",
+        "net.spell_engine.client.util.TextureFile",
+        "net.spell_engine.compat.MultipartEntityCompat",
+        "net.spell_engine.compat.TrinketsCompat",
+        "net.spell_engine.config.ClientConfig",
+        "net.spell_engine.config.ClientConfigWrapper",
+        "net.spell_engine.config.EnchantmentsConfig",
+        "net.spell_engine.config.HudConfig$1",
+        "net.spell_engine.config.HudConfig$CastBar",
+        "net.spell_engine.config.HudConfig$Part",
+        "net.spell_engine.config.HudConfig",
+        "net.spell_engine.config.ServerConfig$1",
+        "net.spell_engine.config.ServerConfig",
+        "net.spell_engine.config.ServerConfigWrapper",
+        "net.spell_engine.entity.ConfigurableKnockback",
+        "net.spell_engine.entity.SpellCloud$NBTKey",
+        "net.spell_engine.entity.SpellCloud",
+        "net.spell_engine.entity.SpellProjectile$1",
+        "net.spell_engine.entity.SpellProjectile$Behaviour",
+        "net.spell_engine.entity.SpellProjectile",
+        "net.spell_engine.fabric.FabricMod",
+        "net.spell_engine.fabric.client.FabricClientMod",
+        "net.spell_engine.internals.Beam$Position",
+        "net.spell_engine.internals.Beam$Rendered",
+        "net.spell_engine.internals.Beam",
+        "net.spell_engine.internals.SpellCastSyncHelper",
+        "net.spell_engine.internals.SpellCasterItemStack",
+        "net.spell_engine.internals.SpellContainerHelper",
+        "net.spell_engine.internals.SpellCooldownManager$Entry",
+        "net.spell_engine.internals.SpellCooldownManager",
+        "net.spell_engine.internals.SpellHelper$1",
+        "net.spell_engine.internals.SpellHelper$AmmoResult",
+        "net.spell_engine.internals.SpellHelper$EstimatedOutput",
+        "net.spell_engine.internals.SpellHelper$EstimatedValue",
+        "net.spell_engine.internals.SpellHelper$ImpactContext",
+        "net.spell_engine.internals.SpellHelper",
+        "net.spell_engine.internals.SpellInfinityEnchantment",
+        "net.spell_engine.internals.SpellRegistry$ReverseEntry",
+        "net.spell_engine.internals.SpellRegistry$SpellEntry",
+        "net.spell_engine.internals.SpellRegistry$SyncFormat",
+        "net.spell_engine.internals.SpellRegistry",
+        "net.spell_engine.internals.Validator",
+        "net.spell_engine.internals.WorldScheduler",
+        "net.spell_engine.internals.arrow.ArrowExtension",
+        "net.spell_engine.internals.arrow.ArrowHelper",
+        "net.spell_engine.internals.casting.SpellCast$1",
+        "net.spell_engine.internals.casting.SpellCast$Action",
+        "net.spell_engine.internals.casting.SpellCast$Animation",
+        "net.spell_engine.internals.casting.SpellCast$Attempt$MissingItemInfo",
+        "net.spell_engine.internals.casting.SpellCast$Attempt$OnCooldownInfo",
+        "net.spell_engine.internals.casting.SpellCast$Attempt$Result",
+        "net.spell_engine.internals.casting.SpellCast$Attempt",
+        "net.spell_engine.internals.casting.SpellCast$Duration",
+        "net.spell_engine.internals.casting.SpellCast$Mode",
+        "net.spell_engine.internals.casting.SpellCast$Process$SyncFormat",
+        "net.spell_engine.internals.casting.SpellCast$Process",
+        "net.spell_engine.internals.casting.SpellCast$Progress",
+        "net.spell_engine.internals.casting.SpellCast",
+        "net.spell_engine.internals.casting.SpellCasterClient",
+        "net.spell_engine.internals.casting.SpellCasterEntity",
+        "net.spell_engine.internals.criteria.EnchantmentSpecificCriteria$Condition",
+        "net.spell_engine.internals.criteria.EnchantmentSpecificCriteria",
+        "net.spell_engine.mixin.ItemStackMixin",
+        "net.spell_engine.mixin.ServerWorldMixin",
+        "net.spell_engine.mixin.action_impair.AbstractHorseEntityMixin",
+        "net.spell_engine.mixin.action_impair.LivingEntityActionImpairing",
+        "net.spell_engine.mixin.action_impair.MobEntityActionImpairing",
+        "net.spell_engine.mixin.action_impair.PlayerEntityActionImpairing",
+        "net.spell_engine.mixin.action_impair.ServerPlayerInteractionManagerMixin",
+        "net.spell_engine.mixin.arrow.CrossbowItemMixin",
+        "net.spell_engine.mixin.arrow.PersistentProjectileEntityMixin",
+        "net.spell_engine.mixin.arrow.ServerWorldArrows",
+        "net.spell_engine.mixin.client.AbstractClientPlayerEntityMixin$1",
+        "net.spell_engine.mixin.client.AbstractClientPlayerEntityMixin",
+        "net.spell_engine.mixin.client.ClientPlayerEntityMixin$1",
+        "net.spell_engine.mixin.client.ClientPlayerEntityMixin",
+        "net.spell_engine.mixin.client.ClientWorldMixin",
+        "net.spell_engine.mixin.client.EntityRenderMixin",
+        "net.spell_engine.mixin.client.LivingEntityVisualMixin",
+        "net.spell_engine.mixin.client.action_impair.ClientPlayerActionImpairing",
+        "net.spell_engine.mixin.client.action_impair.MinecraftClientActionImpairing",
+        "net.spell_engine.mixin.client.control.ClientPlayerInteractionManagerMixin",
+        "net.spell_engine.mixin.client.control.KeybindingAccessor",
+        "net.spell_engine.mixin.client.control.SpellCastingMovement",
+        "net.spell_engine.mixin.client.control.SpellHotbarMinecraftClient$1",
+        "net.spell_engine.mixin.client.control.SpellHotbarMinecraftClient",
+        "net.spell_engine.mixin.client.render.EntityMixin",
+        "net.spell_engine.mixin.client.render.InGameHudMixin",
+        "net.spell_engine.mixin.client.render.ItemRendererAccessor",
+        "net.spell_engine.mixin.client.render.LivingEntityRendererMixin",
+        "net.spell_engine.mixin.client.render.MinecraftClientMixin",
+        "net.spell_engine.mixin.client.render.ModelPredicateProviderRegistryAccessor",
+        "net.spell_engine.mixin.client.render.ProjectileEntityRendererMixin",
+        "net.spell_engine.mixin.client.render.TexturedRenderLayersMixin",
+        "net.spell_engine.mixin.criteria.EnchantedItemCriterionMixin",
+        "net.spell_engine.mixin.effect.EntityImmunityMixin",
+        "net.spell_engine.mixin.effect.LivingEntityStatusEffectSync",
+        "net.spell_engine.mixin.effect.LivingEntityStatusHealthImpacting",
+        "net.spell_engine.mixin.effect.StatusEffectActionImpairing",
+        "net.spell_engine.mixin.effect.StatusEffectHealthImpacting",
+        "net.spell_engine.mixin.effect.StatusEffectRemoveOnHit",
+        "net.spell_engine.mixin.effect.StatusEffectSynchronized",
+        "net.spell_engine.mixin.entity.EntityCollision$1",
+        "net.spell_engine.mixin.entity.EntityCollision",
+        "net.spell_engine.mixin.entity.ItemCooldownManagerMixin",
+        "net.spell_engine.mixin.entity.LivingEntityAccessor",
+        "net.spell_engine.mixin.entity.LivingEntityEvents",
+        "net.spell_engine.mixin.entity.LivingEntityKnockback",
+        "net.spell_engine.mixin.entity.PlayerEntityMixin",
+        "net.spell_engine.network.Packets$ConfigSync",
+        "net.spell_engine.network.Packets$ParticleBatches$SourceType",
+        "net.spell_engine.network.Packets$ParticleBatches$Spawn",
+        "net.spell_engine.network.Packets$ParticleBatches",
+        "net.spell_engine.network.Packets$SpellAnimation",
+        "net.spell_engine.network.Packets$SpellCastSync",
+        "net.spell_engine.network.Packets$SpellCooldown",
+        "net.spell_engine.network.Packets$SpellRegistrySync",
+        "net.spell_engine.network.Packets$SpellRequest",
+        "net.spell_engine.network.Packets",
+        "net.spell_engine.network.ServerNetwork",
+        "net.spell_engine.particle.ParticleHelper$1",
+        "net.spell_engine.particle.ParticleHelper$SpawnInstruction",
+        "net.spell_engine.particle.ParticleHelper",
+        "net.spell_engine.particle.Particles$Helper",
+        "net.spell_engine.particle.Particles$ParticleEntry",
+        "net.spell_engine.particle.Particles",
+        "net.spell_engine.rpg_series.RPGSeriesCore",
+        "net.spell_engine.rpg_series.config.Defaults",
+        "net.spell_engine.spellbinding.SpellBinding$Mode",
+        "net.spell_engine.spellbinding.SpellBinding$Offer",
+        "net.spell_engine.spellbinding.SpellBinding$OfferResult",
+        "net.spell_engine.spellbinding.SpellBinding$State$ApplyState",
+        "net.spell_engine.spellbinding.SpellBinding$State$Requirements",
+        "net.spell_engine.spellbinding.SpellBinding$State",
+        "net.spell_engine.spellbinding.SpellBinding",
+        "net.spell_engine.spellbinding.SpellBindingBlock",
+        "net.spell_engine.spellbinding.SpellBindingBlockEntity",
+        "net.spell_engine.spellbinding.SpellBindingCriteria$Condition",
+        "net.spell_engine.spellbinding.SpellBindingCriteria",
+        "net.spell_engine.spellbinding.SpellBindingScreen$1",
+        "net.spell_engine.spellbinding.SpellBindingScreen$ButtonState",
+        "net.spell_engine.spellbinding.SpellBindingScreen$ButtonViewModel",
+        "net.spell_engine.spellbinding.SpellBindingScreen$SpellInfo",
+        "net.spell_engine.spellbinding.SpellBindingScreen",
+        "net.spell_engine.spellbinding.SpellBindingScreenHandler$1",
+        "net.spell_engine.spellbinding.SpellBindingScreenHandler$2",
+        "net.spell_engine.spellbinding.SpellBindingScreenHandler$3",
+        "net.spell_engine.spellbinding.SpellBindingScreenHandler$4",
+        "net.spell_engine.spellbinding.SpellBindingScreenHandler",
+        "net.spell_engine.spellbinding.SpellBookCreationCriteria$Condition",
+        "net.spell_engine.spellbinding.SpellBookCreationCriteria",
+        "net.spell_engine.utils.AnimationHelper",
+        "net.spell_engine.utils.ItemCooldownManagerExtension",
+        "net.spell_engine.utils.RecordsWithGson$RecordTypeAdapterFactory$1",
+        "net.spell_engine.utils.RecordsWithGson$RecordTypeAdapterFactory",
+        "net.spell_engine.utils.RecordsWithGson",
+        "net.spell_engine.utils.SoundHelper",
+        "net.spell_engine.utils.SoundPlayerWorld",
+        "net.spell_engine.utils.StringUtil",
+        "net.spell_engine.utils.TargetHelper$1",
+        "net.spell_engine.utils.TargetHelper$2",
+        "net.spell_engine.utils.TargetHelper$EntityHit",
+        "net.spell_engine.utils.TargetHelper$Intent",
+        "net.spell_engine.utils.TargetHelper$Relation",
+        "net.spell_engine.utils.TargetHelper$TargetingMode",
+        "net.spell_engine.utils.TargetHelper",
+        "net.spell_engine.utils.VectorHelper",
+        "net.spell_engine.utils.WeaponCompatibility$1",
+        "net.spell_engine.utils.WeaponCompatibility"
+      ],
+      "token_hits": [
+        {
+          "class": "net.spell_engine.api.event.CombatEvents$SpellCast$Args",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "net.spell_engine.api.item.ItemConfig$Weapon",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.spell_engine.api.item.weapon.Weapon",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.spell_engine.api.spell.CustomSpellHandler$Data",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "net.spell_engine.api.spell.Spell$ArrowPerks",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.spell_engine.api.spell.Spell$Impact$Action",
+          "tokens": [
+            "caster",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.spell_engine.api.spell.Spell$Release$Target$Area",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "net.spell_engine.api.spell.Spell$Release$Target$Cursor",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "net.spell_engine.api.spell.Spell$Release$Target$ShootArrow",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.spell_engine.api.spell.SpellEvents$ProjectileLaunchEvent",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "net.spell_engine.client.gui.HudRenderHelper$TargetWidget$ViewModel",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "net.spell_engine.client.gui.HudRenderHelper",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "net.spell_engine.client.gui.SpellTooltip",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.spell_engine.client.input.SpellHotbar",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "net.spell_engine.client.render.BeamRenderer",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "net.spell_engine.client.render.ModelPredicateHelper",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "net.spell_engine.client.sound.SpellCastingSound",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "net.spell_engine.compat.MultipartEntityCompat",
+          "tokens": [
+            "getOwner",
+            "owner"
+          ]
+        },
+        {
+          "class": "net.spell_engine.config.ServerConfig",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.spell_engine.entity.SpellCloud",
+          "tokens": [
+            "setOwner",
+            "owner"
+          ]
+        },
+        {
+          "class": "net.spell_engine.entity.SpellProjectile",
+          "tokens": [
+            "caster",
+            "owner"
+          ]
+        },
+        {
+          "class": "net.spell_engine.internals.SpellCastSyncHelper",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "net.spell_engine.internals.SpellCooldownManager",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "net.spell_engine.internals.SpellHelper$EstimatedOutput",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.spell_engine.internals.SpellHelper",
+          "tokens": [
+            "DamageSource",
+            "setOwner",
+            "caster",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.spell_engine.internals.arrow.ArrowHelper",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.spell_engine.mixin.arrow.CrossbowItemMixin",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "net.spell_engine.mixin.arrow.PersistentProjectileEntityMixin",
+          "tokens": [
+            "DamageSource",
+            "owner",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.spell_engine.mixin.arrow.ServerWorldArrows",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "net.spell_engine.mixin.client.ClientPlayerEntityMixin",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "net.spell_engine.mixin.client.EntityRenderMixin",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "net.spell_engine.mixin.client.LivingEntityVisualMixin",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "net.spell_engine.mixin.client.control.ClientPlayerInteractionManagerMixin",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "net.spell_engine.mixin.client.control.SpellCastingMovement",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "net.spell_engine.mixin.effect.LivingEntityStatusHealthImpacting",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.spell_engine.mixin.effect.StatusEffectHealthImpacting",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.spell_engine.utils.TargetHelper",
+          "tokens": [
+            "caster",
+            "owner"
+          ]
+        }
+      ]
+    }
+  ],
+  "Spellblades": [
+    {
+      "path": "/data/compose/13/docker/servers/50a6d163-0309-4832-986f-106668768b3d/mods/spellbladenext-2.3.0+1.20.1.jar",
+      "metadata": {
+        "fabric.mod.json": "{\n  \"schemaVersion\": 1,\n  \"id\": \"spellbladenext\",\n  \"version\": \"2.3.0+1.20.1\",\n  \"name\": \"Spellblades and Such\",\n  \"description\": \"Assorted Magical Weaponry!\",\n  \"authors\": [\n    \"cleannrooster\"\n  ],\n  \"contact\": {\n    \"homepage\": \"\",\n    \"sources\": \"\"\n  },\n  \"license\": \"MIT\",\n  \"icon\": \"assets/modid/icon.png\",\n  \"environment\": \"*\",\n  \"entrypoints\": {\n    \"main\": [\n      \"com.spellbladenext.Spellblades\"\n    ],\n    \"client\": [\n      \"com.spellbladenext.SpellbladesClient\"\n    ]\n  },\n  \"mixins\": [\n    \"spellbladenext.mixins.json\"\n  ],\n  \"depends\": {\n    \"fabricloader\": \"\\u003e\\u003d0.14.21\",\n    \"minecraft\": \"~1.20.1\",\n    \"spell_engine\": \"\\u003e\\u003d0.15.4\",\n    \"extraspellattributes\": \"\\u003e\\u003d1.2.17\",\n    \"java\": \"\\u003e\\u003d17\",\n    \"fabric-api\": \"*\",\n    \"azurelib\": \"\\u003e\\u003d1.0.29\"\n  },\n  \"recommends\": {\n    \"paladins\": \"1.2.0+1.20.1\"\n  },\n  \"jars\": [\n    {\n      \"file\": \"META-INF/jars/cardinal-components-base-5.2.2.jar\"\n    },\n    {\n      \"file\": \"META-INF/jars/cardinal-components-entity-5.2.2.jar\"\n    },\n    {\n      \"file\": \"META-INF/jars/MixinExtras-0.1.1.jar\"\n    },\n    {\n      \"file\": \"META-INF/jars/TinyConfig-2.3.2.jar\"\n    }\n  ]\n}",
+        "META-INF/MANIFEST.MF": "Manifest-Version: 1.0\r\nFabric-Jar-Type: classes\r\nFabric-Loom-Mixin-Remap-Type: mixin\r\nFabric-Gradle-Version: 8.10\r\nFabric-Loom-Version: 1.7.4\r\nFabric-Mixin-Compile-Extensions-Version: 0.6.0\r\nFabric-Minecraft-Version: 1.20.1\r\nFabric-Tiny-Remapper-Version: 0.10.3\r\nFabric-Loader-Version: 0.15.7\r\nFabric-Mixin-Version: 0.12.5+mixin.0.8.5\r\nFabric-Mixin-Group: net.fabricmc\r\nFabric-Mapping-Namespace: intermediary\r\n\r\n"
+      },
+      "candidate_classes": [
+        "com.spellbladenext.Advancements",
+        "com.spellbladenext.CustomSpellSchools",
+        "com.spellbladenext.Spellblades",
+        "com.spellbladenext.SpellbladesClient",
+        "com.spellbladenext.block.Hexblade",
+        "com.spellbladenext.block.HexbladeBlockItem",
+        "com.spellbladenext.client.entity.CycloneModel",
+        "com.spellbladenext.client.entity.CycloneRenderer",
+        "com.spellbladenext.client.entity.HexbladePortalRenderer",
+        "com.spellbladenext.client.entity.MagisterModel",
+        "com.spellbladenext.client.entity.MagisterRenderer",
+        "com.spellbladenext.client.entity.MagusModel",
+        "com.spellbladenext.client.entity.MagusRenderer",
+        "com.spellbladenext.client.entity.PortalModel",
+        "com.spellbladenext.client.entity.RedLaserModel",
+        "com.spellbladenext.client.entity.RedbeamRenderer",
+        "com.spellbladenext.client.entity.RenderLayerItemMagister",
+        "com.spellbladenext.client.entity.RenderLayerItemMagus",
+        "com.spellbladenext.client.item.model.HeraldArmorModel",
+        "com.spellbladenext.client.item.model.MagisterArmorItemModel",
+        "com.spellbladenext.client.item.model.MagisterArmorModel",
+        "com.spellbladenext.client.item.model.MagusArmorItemModel",
+        "com.spellbladenext.client.item.model.MagusArmorModel",
+        "com.spellbladenext.client.item.model.OrbModel",
+        "com.spellbladenext.client.item.model.RifleModel",
+        "com.spellbladenext.client.item.renderer.HeraldArmorRenderer",
+        "com.spellbladenext.client.item.renderer.MagisterArmorItemRenderer",
+        "com.spellbladenext.client.item.renderer.MagisterArmorRenderer",
+        "com.spellbladenext.client.item.renderer.MagusArmorItemRenderer",
+        "com.spellbladenext.client.item.renderer.MagusArmorRenderer",
+        "com.spellbladenext.client.item.renderer.OrbRenderer",
+        "com.spellbladenext.client.item.renderer.RifleRenderer",
+        "com.spellbladenext.config.ConfigSync",
+        "com.spellbladenext.config.ServerConfig",
+        "com.spellbladenext.config.ServerConfigWrapper",
+        "com.spellbladenext.effect.Challenged",
+        "com.spellbladenext.effect.Collapse",
+        "com.spellbladenext.effect.CustomEffect",
+        "com.spellbladenext.effect.Fervor",
+        "com.spellbladenext.effect.Hex",
+        "com.spellbladenext.effect.Inexorable",
+        "com.spellbladenext.effect.PhoenixCurse",
+        "com.spellbladenext.effect.RunicAbsorption",
+        "com.spellbladenext.effect.Slamming",
+        "com.spellbladenext.effect.Spellstrike",
+        "com.spellbladenext.entity.Archmagus",
+        "com.spellbladenext.entity.CycloneEntity",
+        "com.spellbladenext.entity.HexbladePortal",
+        "com.spellbladenext.entity.Magister",
+        "com.spellbladenext.entity.Magus",
+        "com.spellbladenext.entity.RedLaserEntity",
+        "com.spellbladenext.entity.RifleProjectile",
+        "com.spellbladenext.entity.SmiteLightning",
+        "com.spellbladenext.entity.ai.ArchmagusAI",
+        "com.spellbladenext.entity.ai.ArchmagusJumpBack",
+        "com.spellbladenext.entity.ai.BackUp",
+        "com.spellbladenext.entity.ai.MagisterAI",
+        "com.spellbladenext.entity.ai.MagisterSensor",
+        "com.spellbladenext.entity.ai.MagusAI",
+        "com.spellbladenext.entity.ai.MagusAttackGoal",
+        "com.spellbladenext.entity.ai.MagusDivebombGoal",
+        "com.spellbladenext.entity.ai.MagusFollowGoal",
+        "com.spellbladenext.entity.ai.MagusJumpBack",
+        "com.spellbladenext.entity.ai.MagusSwirlGoal",
+        "com.spellbladenext.entity.ai.MagusThrowGoal",
+        "com.spellbladenext.entity.ai.MeleeAttack",
+        "com.spellbladenext.entity.ai.SpellAttack$CrossbowState",
+        "com.spellbladenext.entity.ai.SpellAttack",
+        "com.spellbladenext.invasions.attackevent",
+        "com.spellbladenext.invasions.piglinsummon",
+        "com.spellbladenext.items.Ashes",
+        "com.spellbladenext.items.Claymore",
+        "com.spellbladenext.items.DebugNetherPortal",
+        "com.spellbladenext.items.EviscerateOil",
+        "com.spellbladenext.items.FinalStrikeOil",
+        "com.spellbladenext.items.FlickerStrikeOil",
+        "com.spellbladenext.items.Items",
+        "com.spellbladenext.items.ModTiers",
+        "com.spellbladenext.items.MonkeyStaff",
+        "com.spellbladenext.items.Offering",
+        "com.spellbladenext.items.Omni",
+        "com.spellbladenext.items.Orb$1",
+        "com.spellbladenext.items.Orb",
+        "com.spellbladenext.items.PrismaticEffigy",
+        "com.spellbladenext.items.RandomSpellOil",
+        "com.spellbladenext.items.Rifle$1",
+        "com.spellbladenext.items.Rifle",
+        "com.spellbladenext.items.SingularPurpose",
+        "com.spellbladenext.items.SmiteOil",
+        "com.spellbladenext.items.SpellOil",
+        "com.spellbladenext.items.Spellblade",
+        "com.spellbladenext.items.SpellbladeItems",
+        "com.spellbladenext.items.Starforge",
+        "com.spellbladenext.items.TabulaRasa",
+        "com.spellbladenext.items.TheAvatar",
+        "com.spellbladenext.items.TheSpark",
+        "com.spellbladenext.items.ThesisBook",
+        "com.spellbladenext.items.Voidforge",
+        "com.spellbladenext.items.WhirlwindOil",
+        "com.spellbladenext.items.armor.Armors",
+        "com.spellbladenext.items.armor.CustomArmor",
+        "com.spellbladenext.items.armor.HeraldArmor$1",
+        "com.spellbladenext.items.armor.HeraldArmor",
+        "com.spellbladenext.items.armor.MagisterArmor$1",
+        "com.spellbladenext.items.armor.MagisterArmor",
+        "com.spellbladenext.items.armor.MagusArmor$1",
+        "com.spellbladenext.items.armor.MagusArmor",
+        "com.spellbladenext.items.armor.RunicArmor",
+        "com.spellbladenext.items.attacks.Attacks",
+        "com.spellbladenext.items.interfaces.PlayerDamageInterface",
+        "com.spellbladenext.items.loot.Default",
+        "com.spellbladenext.mixin.AnimationHelperMixin",
+        "com.spellbladenext.mixin.AttributeMixin",
+        "com.spellbladenext.mixin.EntityMixin",
+        "com.spellbladenext.mixin.EntityRenderDispatcherMixin",
+        "com.spellbladenext.mixin.ItemEntityMixin",
+        "com.spellbladenext.mixin.ItemStackMixin",
+        "com.spellbladenext.mixin.LivingEntityMixin",
+        "com.spellbladenext.mixin.LivingEntityRendererMixin",
+        "com.spellbladenext.mixin.NaturalSpawnerMixin",
+        "com.spellbladenext.mixin.PlayerMixin",
+        "com.spellbladenext.mixin.RenderMixin",
+        "com.spellbladenext.mixin.SpellCastMixin",
+        "com.spellbladenext.mixin.SpellCasterMixin",
+        "com.spellbladenext.mixin.SpellContainerMixin",
+        "com.spellbladenext.mixin.SpellProjectileMixin",
+        "com.spellbladenext.mixin.SpellRenderMixin",
+        "com.spellbladenext.mixin.SpellSchoolsMixin"
+      ],
+      "token_hits": [
+        {
+          "class": "com.spellbladenext.Spellblades",
+          "tokens": [
+            "DamageSource",
+            "setOwner",
+            "caster",
+            "damage"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.SpellbladesClient",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.config.ServerConfig",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.effect.PhoenixCurse",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.effect.Spellstrike",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.entity.Archmagus",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.entity.CycloneEntity",
+          "tokens": [
+            "setOwner",
+            "caster",
+            "owner"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.entity.HexbladePortal",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.entity.Magister",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.entity.Magus",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.entity.RedLaserEntity",
+          "tokens": [
+            "setOwner",
+            "owner"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.entity.RifleProjectile",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.entity.ai.ArchmagusJumpBack",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.entity.ai.MagusAttackGoal",
+          "tokens": [
+            "DamageSource"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.entity.ai.MagusDivebombGoal",
+          "tokens": [
+            "DamageSource"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.entity.ai.MagusJumpBack",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.items.Claymore",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.items.Items",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.items.ModTiers",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.items.Spellblade",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.items.Starforge",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.items.Voidforge",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.items.armor.Armors",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.items.armor.HeraldArmor",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.items.armor.MagisterArmor",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.items.armor.RunicArmor",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.items.attacks.Attacks",
+          "tokens": [
+            "DamageSource",
+            "caster",
+            "damage"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.mixin.ItemStackMixin",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.mixin.LivingEntityMixin",
+          "tokens": [
+            "DamageSource",
+            "caster",
+            "damage"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.mixin.PlayerMixin",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.spellbladenext.mixin.SpellCastMixin",
+          "tokens": [
+            "caster"
+          ]
+        }
+      ]
+    }
+  ],
+  "Wizards": [
+    {
+      "path": "/data/compose/13/docker/servers/50a6d163-0309-4832-986f-106668768b3d/mods/wizards-1.4.1+1.20.1.jar",
+      "metadata": {
+        "fabric.mod.json": "{\n  \"schemaVersion\": 1,\n  \"id\": \"wizards\",\n  \"version\": \"1.4.1+1.20.1\",\n  \"name\": \"Wizards (RPG Series)\",\n  \"description\": \"Destroy your enemies with Arcane, Fire and Frost magic.\",\n  \"authors\": [\n    \"Daedelus\"\n  ],\n  \"contributors\": [\n    \"Crispytwig (Artwork)\"\n  ],\n  \"contact\": {\n    \"repo\": \"https://github.com/ZsoltMolnarrr/Wizards\",\n    \"issues\": \"https://github.com/ZsoltMolnarrr/Wizards/issues\"\n  },\n  \"license\": \"All Rights Reserved\",\n  \"icon\": \"icon.png\",\n  \"environment\": \"*\",\n  \"entrypoints\": {\n    \"client\": [\n      \"net.wizards.fabric.client.FabricClientMod\"\n    ],\n    \"main\": [\n      \"net.wizards.fabric.FabricMod\"\n    ],\n    \"modmenu\": [\n      \"net.spell_engine.client.compatibility.ModMenuCompatibility\"\n    ]\n  },\n  \"mixins\": [\n    \"wizards.mixins.json\"\n  ],\n  \"depends\": {\n    \"minecraft\": \"\\u003e\\u003d1.20.0\",\n    \"fabricloader\": \"\\u003e\\u003d0.14.0\",\n    \"azurelibarmor\": \"*\",\n    \"spell_engine\": \"\\u003e\\u003d0.15.0+1.20.1\",\n    \"spell_power\": \"*\",\n    \"runes\": \"\\u003e\\u003d0.9.9+1.20.1\"\n  },\n  \"custom\": {\n    \"modmenu\": {\n      \"links\": {\n        \"modmenu.discord\": \"https://discord.gg/KN9b3pjFTM\"\n      }\n    }\n  },\n  \"jars\": [\n    {\n      \"file\": \"META-INF/jars/TinyConfig-2.3.2.jar\"\n    },\n    {\n      \"file\": \"META-INF/jars/structure-pool-api-1.0+1.20.1.jar\"\n    }\n  ]\n}",
+        "META-INF/MANIFEST.MF": "Manifest-Version: 1.0\r\nFabric-Jar-Type: classes\r\nFabric-Loom-Mixin-Remap-Type: mixin\r\nFabric-Gradle-Version: 8.7\r\nFabric-Loom-Version: 1.5.8\r\nFabric-Mixin-Compile-Extensions-Version: 0.6.0\r\nFabric-Minecraft-Version: 1.20.1\r\nFabric-Tiny-Remapper-Version: 0.10.0\r\nFabric-Loader-Version: 0.15.7\r\nFabric-Mixin-Version: 0.12.5+mixin.0.8.5\r\nFabric-Mixin-Group: net.fabricmc\r\nFabric-Mapping-Namespace: intermediary\r\n\r\n"
+      },
+      "candidate_classes": [
+        "net.wizards.client.effect.ArcaneChargeRenderer",
+        "net.wizards.client.effect.FrostShieldRenderer",
+        "net.wizards.client.effect.FrozenParticles",
+        "net.wizards.client.effect.FrozenRenderer",
+        "net.wizards.effect.CustomStatusEffect",
+        "net.wizards.effect.Effects",
+        "net.wizards.effect.FrostShieldStatusEffect",
+        "net.wizards.effect.FrostShielded",
+        "net.wizards.effect.FrozenStatusEffect",
+        "net.wizards.mixin.effect.LivingEntityFrostShield",
+        "net.wizards.mixin.effect.LivingEntityFrozen",
+        "net.wizards.mixin.effect.ServerWorldFrostShield"
+      ],
+      "token_hits": [
+        {
+          "class": "net.wizards.config.TweaksConfig",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.wizards.effect.Effects",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.wizards.mixin.effect.LivingEntityFrostShield",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.wizards.util.SoundHelper",
+          "tokens": [
+            "damage"
+          ]
+        }
+      ]
+    }
+  ],
+  "Paladins": [
+    {
+      "path": "/data/compose/13/docker/servers/50a6d163-0309-4832-986f-106668768b3d/mods/paladins-1.4.0+1.20.1.jar",
+      "metadata": {
+        "fabric.mod.json": "{\n  \"schemaVersion\": 1,\n  \"id\": \"paladins\",\n  \"version\": \"1.4.0+1.20.1\",\n  \"name\": \"Paladins \\u0026 Priests (RPG Series)\",\n  \"description\": \"Protect and heal your friends as a Paladin or a Priest.\",\n  \"authors\": [\n    \"Daedelus\"\n  ],\n  \"contributors\": [\n    \"Panda (VFX)\",\n    \"Bubblecat (Artwork)\",\n    \"baldmanmods (Artwork)\",\n    \"carlos52 (Artwork)\",\n    \"jaam (Artwork)\"\n  ],\n  \"contact\": {\n    \"repo\": \"https://github.com/ZsoltMolnarrr/Paladins\",\n    \"issues\": \"https://github.com/ZsoltMolnarrr/Paladins/issues\"\n  },\n  \"license\": \"All Rights Reserved\",\n  \"icon\": \"icon.png\",\n  \"environment\": \"*\",\n  \"entrypoints\": {\n    \"client\": [\n      \"net.paladins.client.PaladinsClientMod\"\n    ],\n    \"main\": [\n      \"net.paladins.PaladinsMod\"\n    ],\n    \"modmenu\": [\n      \"net.spell_engine.client.compatibility.ModMenuCompatibility\"\n    ]\n  },\n  \"mixins\": [\n    \"paladins.mixins.json\"\n  ],\n  \"depends\": {\n    \"minecraft\": \"\\u003e\\u003d1.20.1\",\n    \"fabricloader\": \"\\u003e\\u003d0.14.0\",\n    \"azurelibarmor\": \"*\",\n    \"spell_engine\": \"\\u003e\\u003d0.15.7+1.20.1\",\n    \"spell_power\": \"*\",\n    \"runes\": \"\\u003e\\u003d0.9.10+1.20.1\"\n  },\n  \"custom\": {\n    \"modmenu\": {\n      \"links\": {\n        \"modmenu.discord\": \"https://discord.gg/KN9b3pjFTM\"\n      }\n    }\n  },\n  \"jars\": [\n    {\n      \"file\": \"META-INF/jars/TinyConfig-2.3.2.jar\"\n    },\n    {\n      \"file\": \"META-INF/jars/structure-pool-api-1.0+1.20.1.jar\"\n    },\n    {\n      \"file\": \"META-INF/jars/shield-api-1.0.0+1.20.1-fabric.jar\"\n    }\n  ]\n}",
+        "META-INF/MANIFEST.MF": "Manifest-Version: 1.0\r\nFabric-Jar-Type: classes\r\nFabric-Loom-Mixin-Remap-Type: mixin\r\nFabric-Gradle-Version: 8.7\r\nFabric-Loom-Version: 1.6.12\r\nFabric-Mixin-Compile-Extensions-Version: 0.6.0\r\nFabric-Minecraft-Version: 1.20.1\r\nFabric-Tiny-Remapper-Version: 0.10.3\r\nFabric-Loader-Version: 0.15.7\r\nFabric-Mixin-Version: 0.12.5+mixin.0.8.5\r\nFabric-Mixin-Group: net.fabricmc\r\nFabric-Mapping-Namespace: intermediary\r\n\r\n"
+      },
+      "candidate_classes": [
+        "net.paladins.client.effect.AbsorbParticleSpawner",
+        "net.paladins.client.effect.DivineProtectionRenderer",
+        "net.paladins.effect.CustomStatusEffect",
+        "net.paladins.effect.DivineProtectionStatusEffect",
+        "net.paladins.effect.Effects",
+        "net.paladins.effect.JudgementStatusEffect",
+        "net.paladins.effect.PriestAbsorptionStatusEffect"
+      ],
+      "token_hits": [
+        {
+          "class": "net.paladins.entity.BarrierEntity",
+          "tokens": [
+            "getOwner",
+            "owner"
+          ]
+        },
+        {
+          "class": "net.paladins.item.Weapons",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.paladins.mixin.LivingEntityDivineProtection",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.paladins.util.SoundHelper",
+          "tokens": [
+            "damage"
+          ]
+        }
+      ]
+    }
+  ],
+  "Archers": [
+    {
+      "path": "/data/compose/13/docker/servers/50a6d163-0309-4832-986f-106668768b3d/mods/archers-expansion-0.2.6-1.20.1.jar",
+      "metadata": {
+        "fabric.mod.json": "{\n  \"schemaVersion\": 1,\n  \"id\": \"archers_expansion\",\n  \"version\": \"0.2.6-1.20.1\",\n  \"name\": \"Archers Expansion\",\n  \"description\": \"Extends the Archers-Mod (RPG Series)  with new content. Spell Engine Add-On\",\n  \"authors\": [\n    \"Fichte\"\n  ],\n  \"contact\": {\n    \"homepage\": \"https://fabricmc.net/\",\n    \"sources\": \"https://github.com/FabricMC/fabric-example-mod\"\n  },\n  \"license\": \"ARR\",\n  \"icon\": \"assets/archers_expansion/icon.png\",\n  \"environment\": \"*\",\n  \"entrypoints\": {\n    \"main\": [\n      \"com.archers_expansion.ArchersExpansionMod\"\n    ],\n    \"client\": [\n      \"com.archers_expansion.client.ArchersExpansionModClient\"\n    ],\n    \"fabric-datagen\": [\n      \"com.archers_expansion.ArchersExpansionDataGenerator\"\n    ]\n  },\n  \"mixins\": [\n    \"archers-expansion.mixins.json\"\n  ],\n  \"depends\": {\n    \"fabricloader\": \"\\u003e\\u003d0.15.7\",\n    \"minecraft\": \"1.20.1\",\n    \"java\": \"\\u003e\\u003d17\",\n    \"fabric-api\": \"*\",\n    \"azurelibarmor\": \"*\",\n    \"spell_engine\": \"*\",\n    \"ranged_weapon_api\": \"*\",\n    \"archers\": \"*\",\n    \"more_rpg_classes\": \"\\u003e\\u003d1.2.6-1.20.1\"\n  },\n  \"suggests\": {\n    \"better_combat\": \"*\"\n  },\n  \"custom\": {\n    \"modmenu\": {\n      \"links\": {\n        \"modmenu.discord\": \"https://discord.gg/AShKd5XrTu\"\n      }\n    }\n  },\n  \"jars\": [\n    {\n      \"file\": \"META-INF/jars/MixinExtras-0.1.1.jar\"\n    },\n    {\n      \"file\": \"META-INF/jars/mixinextras-fabric-0.2.0-rc.4.jar\"\n    },\n    {\n      \"file\": \"META-INF/jars/ranged-weapon-api-1.1.0+1.20.1.jar\"\n    },\n    {\n      \"file\": \"META-INF/jars/structure-pool-api-1.0+1.20.1.jar\"\n    },\n    {\n      \"file\": \"META-INF/jars/TinyConfig-2.3.2.jar\"\n    }\n  ]\n}",
+        "META-INF/MANIFEST.MF": "Manifest-Version: 1.0\r\nFabric-Jar-Type: classes\r\nFabric-Loom-Mixin-Remap-Type: mixin\r\nFabric-Gradle-Version: 8.10\r\nFabric-Loom-Version: 1.7.4\r\nFabric-Mixin-Compile-Extensions-Version: 0.6.0\r\nFabric-Minecraft-Version: 1.20.1\r\nFabric-Tiny-Remapper-Version: 0.10.3\r\nFabric-Loader-Version: 0.16.5\r\nFabric-Mixin-Version: 0.15.3+mixin.0.8.7\r\nFabric-Mixin-Group: net.fabricmc\r\nFabric-Mapping-Namespace: intermediary\r\n\r\n"
+      },
+      "candidate_classes": [
+        "com.archers_expansion.client.effect.ChokingPoisonParticles",
+        "com.archers_expansion.client.effect.CrystalArrowParticles",
+        "com.archers_expansion.client.effect.PinDownParticles",
+        "com.archers_expansion.config.EffectsConfig",
+        "com.archers_expansion.effect.ChokingGasEffect",
+        "com.archers_expansion.effect.CrystalArrowEffect",
+        "com.archers_expansion.effect.CustomStatusEffect",
+        "com.archers_expansion.effect.DisablingShotEffect",
+        "com.archers_expansion.effect.Effects",
+        "com.archers_expansion.effect.FrozenPactEffect",
+        "com.archers_expansion.effect.InfiltratorsArrowEffect",
+        "com.archers_expansion.effect.LeapingShotEffect",
+        "com.archers_expansion.effect.PointBlankShot",
+        "com.archers_expansion.effect.WintersGraspEffect"
+      ],
+      "token_hits": [
+        {
+          "class": "com.archers_expansion.effect.ChokingGasEffect",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.archers_expansion.effect.DisablingShotEffect",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "com.archers_expansion.effect.Effects",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "com.archers_expansion.effect.FrozenPactEffect",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.archers_expansion.effect.PointBlankShot",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "com.archers_expansion.items.armors.Armors",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.archers_expansion.mixin.LivingEntityMixin",
+          "tokens": [
+            "caster"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/data/compose/13/docker/servers/50a6d163-0309-4832-986f-106668768b3d/mods/archers-1.3.0+1.20.1.jar",
+      "metadata": {
+        "fabric.mod.json": "{\n  \"schemaVersion\": 1,\n  \"id\": \"archers\",\n  \"version\": \"1.3.0+1.20.1\",\n  \"name\": \"Archers (RPG Series)\",\n  \"description\": \"Draw, Release, Conquer - Master the art of Archery!\",\n  \"authors\": [\n    \"Daedelus\"\n  ],\n  \"contributors\": [\n    \"Ron (Artwork)\"\n  ],\n  \"contact\": {\n    \"repo\": \"https://github.com/ZsoltMolnarrr/Archers\",\n    \"issues\": \"https://github.com/ZsoltMolnarrr/Archers/issues\"\n  },\n  \"license\": \"All Rights Reserved\",\n  \"icon\": \"assets/archers/icon.png\",\n  \"environment\": \"*\",\n  \"entrypoints\": {\n    \"client\": [\n      \"net.archers.client.ArchersClientMod\"\n    ],\n    \"main\": [\n      \"net.archers.ArchersMod\"\n    ],\n    \"modmenu\": [\n      \"net.spell_engine.client.compatibility.ModMenuCompatibility\"\n    ]\n  },\n  \"mixins\": [\n    \"archers.mixins.json\"\n  ],\n  \"depends\": {\n    \"minecraft\": \"\\u003e\\u003d1.20.1\",\n    \"fabricloader\": \"\\u003e\\u003d0.15.7\",\n    \"azurelibarmor\": \"*\",\n    \"spell_engine\": \"\\u003e\\u003d0.15.0+1.20.1\",\n    \"ranged_weapon_api\": \"\\u003e\\u003d1.1.0+1.20.1\"\n  },\n  \"custom\": {\n    \"modmenu\": {\n      \"links\": {\n        \"modmenu.discord\": \"https://discord.gg/KN9b3pjFTM\"\n      }\n    }\n  },\n  \"jars\": [\n    {\n      \"file\": \"META-INF/jars/TinyConfig-2.3.2.jar\"\n    },\n    {\n      \"file\": \"META-INF/jars/structure-pool-api-1.0+1.20.1.jar\"\n    },\n    {\n      \"file\": \"META-INF/jars/ranged-weapon-api-1.1.0+1.20.1.jar\"\n    }\n  ]\n}",
+        "META-INF/MANIFEST.MF": "Manifest-Version: 1.0\r\nFabric-Jar-Type: classes\r\nFabric-Loom-Mixin-Remap-Type: mixin\r\nFabric-Gradle-Version: 8.7\r\nFabric-Loom-Version: 1.5.8\r\nFabric-Mixin-Compile-Extensions-Version: 0.6.0\r\nFabric-Minecraft-Version: 1.20.1\r\nFabric-Tiny-Remapper-Version: 0.10.0\r\nFabric-Loader-Version: 0.15.7\r\nFabric-Mixin-Version: 0.12.5+mixin.0.8.5\r\nFabric-Mixin-Group: net.fabricmc\r\nFabric-Mapping-Namespace: intermediary\r\n\r\n"
+      },
+      "candidate_classes": [
+        "net.archers.client.effect.HuntersMarkRenderer",
+        "net.archers.client.effect.RootsRenderer",
+        "net.archers.effect.CustomStatusEffect",
+        "net.archers.effect.Effects"
+      ],
+      "token_hits": [
+        {
+          "class": "net.archers.item.Armors",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.archers.item.Weapons",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.archers.mixin.item.BowItemMixin",
+          "tokens": [
+            "damage"
+          ]
+        }
+      ]
+    }
+  ],
+  "Bards": [
+    {
+      "path": "/data/compose/13/docker/servers/50a6d163-0309-4832-986f-106668768b3d/mods/bard-1.0.0-1.20.1.jar",
+      "metadata": {
+        "fabric.mod.json": "{\n  \"schemaVersion\": 1,\n  \"id\": \"bards_rpg\",\n  \"version\": \"1.0.0-1.20.1\",\n  \"name\": \"Bards (More RPG Classes)\",\n  \"description\": \"Motivate and strengthen the party with awesome songs and ballads!\",\n  \"authors\": [\n    \"Fichte\"\n  ],\n  \"license\": \"ARR\",\n  \"icon\": \"assets/bards_rpg/icon.png\",\n  \"environment\": \"*\",\n  \"entrypoints\": {\n    \"main\": [\n      \"com.bard_rpg.BardsMod\"\n    ],\n    \"client\": [\n      \"com.bard_rpg.BardClient\"\n    ],\n    \"fabric-datagen\": [\n      \"com.bard_rpg.BardDataGenerator\"\n    ]\n  },\n  \"mixins\": [\n    \"bards_rpg.mixins.json\"\n  ],\n  \"depends\": {\n    \"fabricloader\": \"\\u003e\\u003d0.16.9\",\n    \"minecraft\": \"~1.20.1\",\n    \"java\": \"\\u003e\\u003d17\",\n    \"fabric-api\": \"*\",\n    \"spell_engine\": \"*\",\n    \"more_rpg_classes\": \"*\",\n    \"azurelibarmor\": \"*\",\n    \"ranged_weapon_api\": \"*\",\n    \"structure_pool_api\": \"*\"\n  },\n  \"jars\": [\n    {\n      \"file\": \"META-INF/jars/MixinExtras-0.1.1.jar\"\n    },\n    {\n      \"file\": \"META-INF/jars/TinyConfig-2.3.2.jar\"\n    },\n    {\n      \"file\": \"META-INF/jars/mixinextras-fabric-0.2.0-rc.4.jar\"\n    }\n  ]\n}",
+        "META-INF/MANIFEST.MF": "Manifest-Version: 1.0\r\nFabric-Jar-Type: classes\r\nFabric-Loom-Mixin-Remap-Type: mixin\r\nFabric-Gradle-Version: 9.4.1\r\nFabric-Loom-Version: 1.9.2\r\nFabric-Mixin-Compile-Extensions-Version: 0.6.0\r\nFabric-Minecraft-Version: 1.20.1\r\nFabric-Tiny-Remapper-Version: 0.10.4\r\nFabric-Loader-Version: 0.16.9\r\nFabric-Mixin-Version: 0.15.4+mixin.0.8.7\r\nFabric-Mixin-Group: net.fabricmc\r\nFabric-Mapping-Namespace: intermediary\r\n\r\n"
+      },
+      "candidate_classes": [
+        "com.bard_rpg.client.SpellDescriptionMutators$1",
+        "com.bard_rpg.client.SpellDescriptionMutators$FloatSupplier",
+        "com.bard_rpg.client.SpellDescriptionMutators",
+        "com.bard_rpg.client.effect.ArmysPaeonCircleRenderer",
+        "com.bard_rpg.client.effect.ArmysPaeonNoteRenderer",
+        "com.bard_rpg.client.effect.WardensPaeanEffectRenderer",
+        "com.bard_rpg.config.EffectsConfig",
+        "com.bard_rpg.content.CustomSpellImpacts",
+        "com.bard_rpg.effect.BardsEffects",
+        "com.bard_rpg.effect.CanticlesOfTheTidesEffect",
+        "com.bard_rpg.effect.CustomStatusEffect",
+        "com.bard_rpg.effect.HymnOfTheGoldenLightEffect",
+        "com.bard_rpg.effect.WardensPaeanBeneficialEffect",
+        "com.bard_rpg.effect.WardensPaeanHarmfulEffect",
+        "com.bard_rpg.mixin.BardSpellAnimationMixin$1",
+        "com.bard_rpg.mixin.BardSpellAnimationMixin",
+        "com.bard_rpg.mixin.RangedWeaponSpellSourceMixin"
+      ],
+      "token_hits": [
+        {
+          "class": "com.bard_rpg.client.SpellDescriptionMutators",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.bard_rpg.config.EffectsConfig",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.bard_rpg.config.TweaksConfig",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.bard_rpg.content.CustomSpellImpacts",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "com.bard_rpg.effect.BardsEffects",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.bard_rpg.item.Weapons",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.bard_rpg.mixin.ArmiesMotivationMixin",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.bard_rpg.mixin.ArmiesPaeonMixin",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.bard_rpg.mixin.DiscordantNoteMixin",
+          "tokens": [
+            "damage"
+          ]
+        }
+      ]
+    }
+  ],
+  "Death Knights": [
+    {
+      "path": "/data/compose/13/docker/servers/50a6d163-0309-4832-986f-106668768b3d/mods/death_knights-fabric-1.0.0-1.20.1.jar",
+      "metadata": {
+        "fabric.mod.json": "{\n\t\"schemaVersion\": 1,\n\t\"id\": \"death_knights\",\n\t\"version\": \"1.0.0\",\n\t\"name\": \"Death Knights\",\n\t\"description\": \"Embrace darkness and become a Death Knight! An RPG Series mod inspired by World of Warcraft.\",\n\t\"authors\": [\n\t\t\"ElocinDev\"\n\t],\n\t\"contact\": {\n\t\t\"homepage\": \"https://rpg.prominence.wiki/mod/death-knights\",\n\t\t\"sources\": \"https://github.com/nvb-uy/Death_Knights\"\n\t},\n\t\"license\": \"All Rights Reserved\",\n\t\"icon\": \"assets/death_knights/icon.png\",\n\t\"environment\": \"*\",\n\t\"entrypoints\": {\n\t\t\"main\": [\n\t\t\t\"elocindev.deathknights.DeathKnights\"\n\t\t],\n\t\t\"client\": [\n\t\t\t\"elocindev.deathknights.DeathKnightsClient\"\n\t\t]\n\t},\n\t\"mixins\": [\n\t\t\"death_knights.mixins.json\"\n\t],\n\t\"depends\": {\n\t\t\"fabricloader\": \">=0.16.0\",\n\t\t\"minecraft\": \">=1.20 <=1.20.1\",\n\t\t\"java\": \">=17\",\n\t\t\"fabric-api\": \"*\",\n\t\t\"player-animator\": \"*\",\n\t\t\"spell_engine\": \"*\",\n\t\t\"necronomicon\": \">=1.6.0\",\n\t\t\"eternal_attributes\": \"*\"\n\t},\n\t\"suggests\": {\n\t\t\"bettercombat\": \"*\"\n\t}\n}",
+        "META-INF/MANIFEST.MF": "Manifest-Version: 1.0\r\nFabric-Jar-Type: classes\r\nFabric-Loom-Mixin-Remap-Type: mixin\r\nFabric-Gradle-Version: 8.8\r\nFabric-Loom-Version: 1.7.423\r\nFabric-Mixin-Compile-Extensions-Version: 0.6.0\r\nFabric-Minecraft-Version: 1.20.1\r\nFabric-Tiny-Remapper-Version: 0.10.3\r\nFabric-Loader-Version: 0.16.9\r\nFabric-Mixin-Version: 0.15.4+mixin.0.8.7\r\nFabric-Mixin-Group: net.fabricmc\r\nFabric-Mapping-Namespace: intermediary\r\n\r\n"
+      },
+      "candidate_classes": [
+        "elocindev.deathknights.api.core.SpellEffect",
+        "elocindev.deathknights.client.particle.LitSpellParticle$Factory",
+        "elocindev.deathknights.client.particle.LitSpellParticle",
+        "elocindev.deathknights.client.particle.OpaqueSpellParticle$Factory",
+        "elocindev.deathknights.client.particle.OpaqueSpellParticle",
+        "elocindev.deathknights.config.Configs$Spells$Blood",
+        "elocindev.deathknights.config.Configs$Spells$Frost",
+        "elocindev.deathknights.config.Configs$Spells$Unholy",
+        "elocindev.deathknights.config.Configs$Spells",
+        "elocindev.deathknights.config.entries.spells.blood.BloodBoilConfig",
+        "elocindev.deathknights.config.entries.spells.blood.BloodThirstConfig",
+        "elocindev.deathknights.config.entries.spells.blood.DeathStrikeConfig",
+        "elocindev.deathknights.config.entries.spells.blood.MarrowrendConfig",
+        "elocindev.deathknights.config.entries.spells.frost.BreathOfAgonyConfig",
+        "elocindev.deathknights.config.entries.spells.frost.FrostStrikeConfig",
+        "elocindev.deathknights.config.entries.spells.frost.ObliterateConfig",
+        "elocindev.deathknights.config.entries.spells.frost.RemorselessWinterConfig",
+        "elocindev.deathknights.config.entries.spells.unholy.DeathCoilConfig",
+        "elocindev.deathknights.config.entries.spells.unholy.DeathGripConfig$EffectHolder",
+        "elocindev.deathknights.config.entries.spells.unholy.DeathGripConfig",
+        "elocindev.deathknights.config.entries.spells.unholy.EpidemicConfig",
+        "elocindev.deathknights.config.entries.spells.unholy.PlaguesConfig$PlagueProperty",
+        "elocindev.deathknights.config.entries.spells.unholy.PlaguesConfig",
+        "elocindev.deathknights.mixin.entity.damage.BloodThirstSelfHealMixin",
+        "elocindev.deathknights.mixin.entity.damage.DecayingDamageMixin",
+        "elocindev.deathknights.mixin.entity.effect_logic.LivingEffectModifiersMixin",
+        "elocindev.deathknights.registry.SpellRegistry",
+        "elocindev.deathknights.registry.SpellSchoolRegistry",
+        "elocindev.deathknights.registry.StatusEffectRegistry",
+        "elocindev.deathknights.spells.GlobalCooldown",
+        "elocindev.deathknights.spells.SpellHandler",
+        "elocindev.deathknights.spells.blood.BloodBoilHandler",
+        "elocindev.deathknights.spells.blood.DarkCommandHandler",
+        "elocindev.deathknights.spells.blood.DeathStrikeHandler",
+        "elocindev.deathknights.spells.blood.MarrowrendHandler",
+        "elocindev.deathknights.spells.blood.buff.BloodThirst",
+        "elocindev.deathknights.spells.blood.buff.Marrowshield",
+        "elocindev.deathknights.spells.blood.debuff.BloodPlague",
+        "elocindev.deathknights.spells.blood.debuff.Enraged",
+        "elocindev.deathknights.spells.frost.BreathOfAgony",
+        "elocindev.deathknights.spells.frost.FrostStrike",
+        "elocindev.deathknights.spells.frost.Obliterate",
+        "elocindev.deathknights.spells.frost.RemorselessWinter",
+        "elocindev.deathknights.spells.unholy.DeathCoilHandler",
+        "elocindev.deathknights.spells.unholy.DeathGripHandler$PullInfoHolder",
+        "elocindev.deathknights.spells.unholy.DeathGripHandler",
+        "elocindev.deathknights.spells.unholy.EpidemicHandler",
+        "elocindev.deathknights.spells.unholy.FesteringStrike",
+        "elocindev.deathknights.spells.unholy.debuff.AtrociousPlague",
+        "elocindev.deathknights.spells.unholy.debuff.GreviousPlague",
+        "elocindev.deathknights.util.EffectUtils"
+      ],
+      "token_hits": [
+        {
+          "class": "elocindev.deathknights.config.entries.enchants.DecayingEnchantConfig",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "elocindev.deathknights.config.entries.spells.blood.BloodBoilConfig",
+          "tokens": [
+            "caster",
+            "damage"
+          ]
+        },
+        {
+          "class": "elocindev.deathknights.config.entries.spells.frost.BreathOfAgonyConfig",
+          "tokens": [
+            "caster",
+            "damage"
+          ]
+        },
+        {
+          "class": "elocindev.deathknights.config.entries.spells.frost.FrostStrikeConfig",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "elocindev.deathknights.config.entries.spells.frost.RemorselessWinterConfig",
+          "tokens": [
+            "caster",
+            "damage"
+          ]
+        },
+        {
+          "class": "elocindev.deathknights.config.entries.spells.unholy.DeathGripConfig",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "elocindev.deathknights.mixin.entity.damage.BloodThirstSelfHealMixin",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "elocindev.deathknights.mixin.entity.damage.DecayingDamageMixin",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "elocindev.deathknights.mixin.entity.effect_logic.LivingEffectModifiersMixin",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "elocindev.deathknights.registry.ArmorRegistry",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "elocindev.deathknights.registry.ItemRegistry",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "elocindev.deathknights.spells.GlobalCooldown",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "elocindev.deathknights.spells.blood.BloodBoilHandler",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "elocindev.deathknights.spells.blood.DarkCommandHandler",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "elocindev.deathknights.spells.blood.DeathStrikeHandler",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "elocindev.deathknights.spells.blood.MarrowrendHandler",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "elocindev.deathknights.spells.blood.debuff.BloodPlague",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "elocindev.deathknights.spells.frost.BreathOfAgony",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "elocindev.deathknights.spells.frost.FrostStrike",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "elocindev.deathknights.spells.frost.RemorselessWinter",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "elocindev.deathknights.spells.unholy.DeathCoilHandler",
+          "tokens": [
+            "DamageSource",
+            "caster",
+            "damage"
+          ]
+        },
+        {
+          "class": "elocindev.deathknights.spells.unholy.DeathGripHandler$PullInfoHolder",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "elocindev.deathknights.spells.unholy.DeathGripHandler",
+          "tokens": [
+            "getEntity",
+            "caster"
+          ]
+        },
+        {
+          "class": "elocindev.deathknights.spells.unholy.EpidemicHandler",
+          "tokens": [
+            "DamageSource",
+            "caster",
+            "damage"
+          ]
+        }
+      ]
+    }
+  ],
+  "Forcemaster": [
+    {
+      "path": "/data/compose/13/docker/servers/50a6d163-0309-4832-986f-106668768b3d/mods/forcemaster-class-mod-1.2.6-1.20.1.jar",
+      "metadata": {
+        "fabric.mod.json": "{\n  \"schemaVersion\": 1,\n  \"id\": \"forcemaster_rpg\",\n  \"version\": \"1.2.6-1.20.1\",\n  \"name\": \"Forcemaster Class Mod\",\n  \"description\": \"Grab a Knuckle, master the force and martial art. Spell Engine Add-On\",\n  \"authors\": [\n    \"Fichte\"\n  ],\n  \"contact\": {\n    \"sources\": \"https://github.com/ProfessorFichte\"\n  },\n  \"license\": \"ARR\",\n  \"icon\": \"assets/forcemaster_rpg/icon.png\",\n  \"environment\": \"*\",\n  \"entrypoints\": {\n    \"client\": [\n      \"net.forcemaster_rpg.client.ForcemasterClient\"\n    ],\n    \"main\": [\n      \"net.forcemaster_rpg.ForcemasterClassMod\"\n    ],\n    \"fabric-datagen\": [\n      \"net.forcemaster_rpg.ForcemasterClassModDataGenerator\"\n    ],\n    \"modmenu\": [\n      \"net.spell_engine.client.compatibility.ModMenuCompatibility\"\n    ]\n  },\n  \"mixins\": [\n    \"forcemaster-class-mod.mixins.json\"\n  ],\n  \"depends\": {\n    \"fabricloader\": \"\\u003e\\u003d0.14.21\",\n    \"minecraft\": \"~1.20.1\",\n    \"java\": \"\\u003e\\u003d17\",\n    \"fabric-api\": \"*\",\n    \"azurelibarmor\": \"*\",\n    \"spell_engine\": \"\\u003e\\u003d0.15.0\",\n    \"spell_power\": \"\\u003e\\u003d0.10.0\",\n    \"more_rpg_classes\": \"\\u003e\\u003d1.1.8\"\n  },\n  \"suggests\": {\n    \"better_combat\": \"*\"\n  },\n  \"custom\": {\n    \"modmenu\": {\n      \"links\": {\n        \"modmenu.discord\": \"https://discord.gg/AShKd5XrTu\"\n      }\n    }\n  },\n  \"jars\": [\n    {\n      \"file\": \"META-INF/jars/MixinExtras-0.1.1.jar\"\n    },\n    {\n      \"file\": \"META-INF/jars/TinyConfig-2.3.2.jar\"\n    },\n    {\n      \"file\": \"META-INF/jars/mixinextras-fabric-0.2.0-rc.4.jar\"\n    }\n  ]\n}",
+        "META-INF/MANIFEST.MF": "Manifest-Version: 1.0\r\nFabric-Jar-Type: classes\r\nFabric-Loom-Mixin-Remap-Type: mixin\r\nFabric-Gradle-Version: 8.11.1\r\nFabric-Loom-Version: 1.9.2\r\nFabric-Mixin-Compile-Extensions-Version: 0.6.0\r\nFabric-Minecraft-Version: 1.20.1\r\nFabric-Tiny-Remapper-Version: 0.10.4\r\nFabric-Loader-Version: 0.15.10\r\nFabric-Mixin-Version: 0.13.3+mixin.0.8.5\r\nFabric-Mixin-Group: net.fabricmc\r\nFabric-Mapping-Namespace: intermediary\r\n\r\n"
+      },
+      "candidate_classes": [
+        "net.forcemaster_rpg.client.effect.ArcaneOverDriveRenderer",
+        "net.forcemaster_rpg.client.effect.BarqEsnaParticles",
+        "net.forcemaster_rpg.config.EffectsConfig",
+        "net.forcemaster_rpg.custom.custom_spells.CustomSpells",
+        "net.forcemaster_rpg.effect.ArcaneOverflowEffect",
+        "net.forcemaster_rpg.effect.BarqEsnaEffect",
+        "net.forcemaster_rpg.effect.Effects",
+        "net.forcemaster_rpg.effect.StoneHandEffect"
+      ],
+      "token_hits": [
+        {
+          "class": "net.forcemaster_rpg.config.EffectsConfig",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.forcemaster_rpg.custom.custom_spells.CustomSpells",
+          "tokens": [
+            "caster"
+          ]
+        },
+        {
+          "class": "net.forcemaster_rpg.effect.Effects",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.forcemaster_rpg.item.weapons.WeaponsRegister",
+          "tokens": [
+            "damage"
+          ]
+        }
+      ]
+    }
+  ],
+  "Soulmaster": [
+    {
+      "path": "/data/compose/13/docker/servers/50a6d163-0309-4832-986f-106668768b3d/mods/soulmaster-1.0.3.jar",
+      "metadata": {
+        "fabric.mod.json": "{\n  \"schemaVersion\": 1,\n  \"id\": \"soulmaster\",\n  \"version\": \"1.0.3\",\n  \"name\": \"Soulmaster\",\n  \"description\": \"Reworks Forcemaster RPG to scale with Soul Power.\",\n  \"authors\": [\n    \"Stalemated\"\n  ],\n  \"contact\": {\n    \"homepage\": \"https://www.curseforge.com/minecraft/mc-mods/soulmaster-forcemaster-rpg\",\n    \"sources\": \"https://github.com/Stalemated/soulmaster\",\n    \"issues\": \"https://github.com/Stalemated/soulmaster/issues\"\n  },\n  \"license\": \"MIT\",\n  \"icon\": \"assets/soulmaster/soulmaster_icon.png\",\n  \"environment\": \"*\",\n  \"entrypoints\": {\n    \"main\": [\n      \"com.stalemated.soulmaster.Soulmaster\"\n    ],\n    \"client\": [\n      \"com.stalemated.soulmaster.client.SoulmasterClient\"\n    ]\n  },\n  \"mixins\": [\n    \"soulmaster.mixins.json\"\n  ],\n  \"depends\": {\n    \"fabricloader\": \"\\u003e\\u003d0.14.21\",\n    \"minecraft\": \"~1.20.1\",\n    \"java\": \"\\u003e\\u003d17\",\n    \"fabric-api\": \"*\",\n    \"forcemaster_rpg\": \"*\",\n    \"spell_engine\": \"\\u003e\\u003d0.15.0\",\n    \"spell_power\": \"\\u003e\\u003d0.10.0\"\n  },\n  \"jars\": [\n    {\n      \"file\": \"META-INF/jars/TinyConfig-2.3.2.jar\"\n    }\n  ]\n}",
+        "META-INF/MANIFEST.MF": "Manifest-Version: 1.0\r\nFabric-Jar-Type: classes\r\nFabric-Loom-Mixin-Remap-Type: static\r\nFabric-Gradle-Version: 9.4.1\r\nFabric-Loom-Version: 1.16.1\r\nFabric-Mixin-Compile-Extensions-Version: 0.6.0\r\nFabric-Minecraft-Version: 1.20.1\r\nFabric-Tiny-Remapper-Version: 0.13.0\r\nFabric-Loader-Version: 0.15.10\r\nFabric-Mixin-Version: 0.13.3+mixin.0.8.5\r\nFabric-Mixin-Group: net.fabricmc\r\nFabric-Mapping-Namespace: intermediary\r\n\r\n"
+      },
+      "candidate_classes": [
+        "com.stalemated.soulmaster.effects.Effects",
+        "com.stalemated.soulmaster.effects.SoulBarqEsnaEffect",
+        "com.stalemated.soulmaster.effects.SoulOverflowEffect"
+      ],
+      "token_hits": [
+        {
+          "class": "com.stalemated.soulmaster.config.Config",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.stalemated.soulmaster.effects.Effects",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.stalemated.soulmaster.mixin.PlayerEntityMixin",
+          "tokens": [
+            "DamageSource"
+          ]
+        }
+      ]
+    }
+  ],
+  "Invoke": [
+    {
+      "path": "/data/compose/13/docker/servers/50a6d163-0309-4832-986f-106668768b3d/mods/invoke-1.0.3.1-1.20.1.jar",
+      "metadata": {
+        "fabric.mod.json": "{\n  \"schemaVersion\": 1,\n  \"id\": \"invoke\",\n  \"version\": \"1.0.3.1-1.20.1\",\n  \"name\": \"Invocations Mod\",\n  \"description\": \"Invoke powerful spells, 24 Spells in one book!\",\n  \"authors\": [\n    \"cleannrooster/Forg\"\n  ],\n  \"contact\": {\n    \"homepage\": \"\",\n    \"sources\": \"\"\n  },\n  \"license\": \"MIT\",\n  \"icon\": \"assets/modid/icon.png\",\n  \"environment\": \"*\",\n  \"entrypoints\": {\n    \"main\": [\n      \"com.invoke.InvokeMod\"\n    ],\n    \"client\": [\n      \"com.invoke.InvokeClient\"\n    ]\n  },\n  \"mixins\": [\n    \"invoke.mixins.json\",\n    {\n      \"config\": \"invoke.client.mixins.json\",\n      \"environment\": \"client\"\n    }\n  ],\n  \"depends\": {\n    \"fabricloader\": \"\\u003e\\u003d0.14.21\",\n    \"minecraft\": \"~1.20.1\",\n    \"java\": \"\\u003e\\u003d17\",\n    \"fabric-api\": \"*\",\n    \"wizards\": \"\\u003e\\u003d0.9.23\",\n    \"spell_engine\": \"\\u003e\\u003d0.14.1\"\n  },\n  \"suggests\": {\n    \"another-mod\": \"*\"\n  },\n  \"jars\": [\n    {\n      \"file\": \"META-INF/jars/MixinExtras-0.1.1.jar\"\n    }\n  ]\n}",
+        "META-INF/MANIFEST.MF": "Manifest-Version: 1.0\r\nFabric-Jar-Type: classes\r\nFabric-Loom-Client-Only-Entries: client-invoke-refmap.json;com/invoke/In\r\n vokeClient.class;com/invoke/client/GlacierRenderer.class;com/invoke/cli\r\n ent/GlacierSmallModel.class;com/invoke/client/HudOverlay.class;com/invo\r\n ke/mixin/ExampleClientMixin.class;com/invoke/mixin/LivingEntityRenderer\r\n Mixin.class;com/invoke/mixin/SpellRenderMixin.class;com/invoke/mixin/Sp\r\n ellTooltipMixin.class;invoke.client.mixins.json\r\nFabric-Loom-Mixin-Remap-Type: mixin\r\nFabric-Loom-Split-Environment: true\r\nFabric-Gradle-Version: 8.10\r\nFabric-Loom-Version: 1.7.4\r\nFabric-Mixin-Compile-Extensions-Version: 0.6.0\r\nFabric-Minecraft-Version: 1.20.1\r\nFabric-Tiny-Remapper-Version: 0.10.3\r\nFabric-Loader-Version: 0.15.6\r\nFabric-Mixin-Version: 0.12.5+mixin.0.8.5\r\nFabric-Mixin-Group: net.fabricmc\r\nFabric-Mapping-Namespace: intermediary\r\n\r\n"
+      },
+      "candidate_classes": [
+        "com.invoke.effects.CustomEffect",
+        "com.invoke.effects.CustomStatusEffectInvoking",
+        "com.invoke.mixin.SpellCastMixin",
+        "com.invoke.mixin.SpellProjectileMixin",
+        "com.invoke.mixin.SpellRenderMixin",
+        "com.invoke.mixin.SpellTooltipMixin"
+      ],
+      "token_hits": [
+        {
+          "class": "com.invoke.InvokeMod",
+          "tokens": [
+            "caster",
+            "damage"
+          ]
+        },
+        {
+          "class": "com.invoke.entities.EndersGaze",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "com.invoke.entities.GlacierSmall",
+          "tokens": [
+            "owner",
+            "damage"
+          ]
+        },
+        {
+          "class": "com.invoke.mixin.LivingEntityRendererMixin",
+          "tokens": [
+            "caster"
+          ]
+        }
+      ]
+    }
+  ],
+  "SimplySkills": [
+    {
+      "path": "/data/compose/13/docker/servers/50a6d163-0309-4832-986f-106668768b3d/mods/simplyskills-1.7.2+1.20.1.jar",
+      "metadata": {
+        "fabric.mod.json": "{\n  \"schemaVersion\": 1,\n  \"id\": \"simplyskills\",\n  \"version\": \"1.7.2+1.20.1\",\n  \"name\": \"SimplySkills\",\n  \"description\": \"A comprehensive skill tree mod with a focus on combat specialisations.\",\n  \"authors\": [\n    \"Sweenus\",\n    \"Timefall Development\"\n  ],\n  \"contact\": {\n    \"homepage\": \"https://www.curseforge.com/minecraft/mc-mods/simply_skills\",\n    \"sources\": \"https://github.com/Sweenus/SimplySkills\",\n    \"issues\": \"https://github.com/Sweenus/SimplySkills/issues\"\n  },\n  \"license\": \"Timefall Development License 1.2\",\n  \"icon\": \"assets/simplyskills/icon.png\",\n  \"environment\": \"*\",\n  \"entrypoints\": {\n    \"client\": [\n      \"net.sweenus.simplyskills.client.SimplySkillsClient\"\n    ],\n    \"main\": [\n      \"net.sweenus.simplyskills.SimplySkills\"\n    ],\n    \"preLaunch\": [\n      \"net.sweenus.simplyskills.util.SimplySkillsPreInit\"\n    ],\n    \"modmenu\": [\n      \"net.sweenus.simplyskills.client.ModMenuIntegration\"\n    ]\n  },\n  \"mixins\": [\n    \"simplyskills.mixins.json\"\n  ],\n  \"depends\": {\n    \"fabricloader\": \"\\u003e\\u003d0.15.7\",\n    \"fabric\": \"*\",\n    \"minecraft\": \"1.20.1\",\n    \"spell_power\": \"\\u003e\\u003d0.11.0+1.20.1\",\n    \"spell_engine\": \"\\u003e\\u003d0.15.0+1.20.1 \\u003c0.16.0+1.20.1\",\n    \"cloth-config\": \"\\u003e\\u003d11.1.106\",\n    \"puffish_skills\": \"\\u003e\\u003d0.12.0\",\n    \"puffish_attributes\": \"\\u003e\\u003d0.4.0\"\n  },\n  \"recommends\": {\n    \"simplyswords\": \"\\u003e\\u003d1.55.0-1.20.1\",\n    \"paladins\": \"\\u003e\\u003d1.0.2+1.20.1\",\n    \"amethyst_core\": \"\\u003e\\u003d1.4.2+1.20.1\"\n  },\n  \"breaks\": {\n    \"amethyst_core\": \"\\u003c1.4.2+1.20.1\"\n  },\n  \"jars\": [\n    {\n      \"file\": \"META-INF/jars/TinyConfig-2.3.2.jar\"\n    }\n  ]\n}",
+        "META-INF/MANIFEST.MF": "Manifest-Version: 1.0\r\nFabric-Gradle-Version: 7.3.3\r\nFabric-Loom-Version: 1.0.18\r\nFabric-Mixin-Compile-Extensions-Version: 0.5.0\r\nFabric-Minecraft-Version: 1.20.1\r\nFabric-Tiny-Remapper-Version: 0.8.5\r\nFabric-Loader-Version: 11.1.106\r\nFabric-Mixin-Version: 0.12.5+mixin.0.8.5\r\nFabric-Mixin-Group: net.fabricmc\r\nFabric-Mapping-Namespace: intermediary\r\n\r\n"
+      },
+      "candidate_classes": [
+        "net.sweenus.simplyskills.client.effects.RageParticles",
+        "net.sweenus.simplyskills.effects.BarrierEffect",
+        "net.sweenus.simplyskills.effects.SiphoningStrikesEffect",
+        "net.sweenus.simplyskills.util.SimplySkillsPreInit",
+        "net.sweenus.simplyskills.registry.EntityRegistry",
+        "net.sweenus.simplyskills.effects.BullrushEffect",
+        "net.sweenus.simplyskills.entities.WraithEntity$1",
+        "net.sweenus.simplyskills.abilities.WarriorAbilities",
+        "net.sweenus.simplyskills.effects.SpellweaverEffect",
+        "net.sweenus.simplyskills.mixins.BowItemMixin",
+        "net.sweenus.simplyskills.effects.MelodyOfProtectionEffect",
+        "net.sweenus.simplyskills.client.effects.OrbitingEffectRenderer$Model",
+        "net.sweenus.simplyskills.mixins.client.SkillsScreenAccessor",
+        "net.sweenus.simplyskills.network.UpdateUnspentPointsPacket",
+        "net.sweenus.simplyskills.abilities.SpellbladeAbilities",
+        "net.sweenus.simplyskills.abilities.compat.SimplySwordsRequiredMethods",
+        "net.sweenus.simplyskills.client.SimplySkillsClient",
+        "net.sweenus.simplyskills.network.StopSoundPacket",
+        "net.sweenus.simplyskills.registry.EffectRegistry",
+        "net.sweenus.simplyskills.abilities.CrusaderAbilities",
+        "net.sweenus.simplyskills.client.effects.BarrierParticles",
+        "net.sweenus.simplyskills.effects.CataclysmEffect",
+        "net.sweenus.simplyskills.client.effects.TauntedRenderer",
+        "net.sweenus.simplyskills.effects.MelodyOfConcentrationEffect",
+        "net.sweenus.simplyskills.effects.VitalityBondEffect",
+        "net.sweenus.simplyskills.effects.StealthEffect",
+        "net.sweenus.simplyskills.effects.GoldenAegisEffect",
+        "net.sweenus.simplyskills.util.FileCopier",
+        "net.sweenus.simplyskills.effects.MagicCircleEffect",
+        "net.sweenus.simplyskills.effects.FocusEffect",
+        "net.sweenus.simplyskills.abilities.ProminenceAbilities",
+        "net.sweenus.simplyskills.mixins.FollowOwnerGoalMixin",
+        "net.sweenus.simplyskills.util.DynamicDamage",
+        "net.sweenus.simplyskills.effects.DivineAdjudicationEffect",
+        "net.sweenus.simplyskills.effects.TitansGripEffect",
+        "net.sweenus.simplyskills.abilities.SignatureAbilities",
+        "net.sweenus.simplyskills.effects.BladestormEffect",
+        "net.sweenus.simplyskills.client.renderer.model.DreadglareModel",
+        "net.sweenus.simplyskills.effects.AgileEffect",
+        "net.sweenus.simplyskills.effects.BloodthirstyEffect",
+        "net.sweenus.simplyskills.client.renderer.GreaterDreadglareRenderer",
+        "net.sweenus.simplyskills.config.MiscConfig",
+        "net.sweenus.simplyskills.effects.TauntedEffect",
+        "net.sweenus.simplyskills.effects.HolyAttunementEffect",
+        "net.sweenus.simplyskills.abilities.compat.SimplySwordsGemEffects",
+        "net.sweenus.simplyskills.rewards.PassiveSkillReward",
+        "net.sweenus.simplyskills.effects.MelodyOfBloodlustEffect",
+        "net.sweenus.simplyskills.entities.DreadglareEntity$1",
+        "net.sweenus.simplyskills.client.effects.UndyingRenderer",
+        "net.sweenus.simplyskills.mixins.client.SkillsScreenMixin",
+        "net.sweenus.simplyskills.abilities.compat.ProminenceInternalAbilities",
+        "net.sweenus.simplyskills.util.SkillReferencePosition",
+        "net.sweenus.simplyskills.effects.RevealedEffect",
+        "net.sweenus.simplyskills.effects.ArcaneVolleyEffect",
+        "net.sweenus.simplyskills.mixins.ServerPlayerEntityMixin",
+        "net.sweenus.simplyskills.effects.RighteousShieldEffect",
+        "net.sweenus.simplyskills.effects.ArrowRainEffect",
+        "net.sweenus.simplyskills.items.SkillChronicle",
+        "net.sweenus.simplyskills.effects.EvasionEffect",
+        "net.sweenus.simplyskills.abilities.WayfarerAbilities",
+        "net.sweenus.simplyskills.config.GeneralConfig",
+        "net.sweenus.simplyskills.mixins.ExternalSpellSchoolsMixin",
+        "net.sweenus.simplyskills.config.CrusaderConfig",
+        "net.sweenus.simplyskills.effects.RapidFireEffect",
+        "net.sweenus.simplyskills.mixins.LivingEntityMixin",
+        "net.sweenus.simplyskills.config.InitiateConfig",
+        "net.sweenus.simplyskills.effects.SpellbreakingEffect",
+        "net.sweenus.simplyskills.client.renderer.SpellTargetEntityRenderer",
+        "net.sweenus.simplyskills.entities.ai.DirectionalFlightMoveControl",
+        "net.sweenus.simplyskills.client.effects.DeathMarkRenderer",
+        "net.sweenus.simplyskills.items.MalevolentManuscript",
+        "net.sweenus.simplyskills.client.effects.EvasionParticles",
+        "net.sweenus.simplyskills.effects.DisenchantmentEffect",
+        "net.sweenus.simplyskills.client.events.ClientEvents",
+        "net.sweenus.simplyskills.network.ModPacketHandler",
+        "net.sweenus.simplyskills.effects.ElementalImpactEffect",
+        "net.sweenus.simplyskills.effects.ShadowAuraEffect",
+        "net.sweenus.simplyskills.config.RogueConfig",
+        "net.sweenus.simplyskills.abilities.WizardAbilities",
+        "net.sweenus.simplyskills.client.gui.CustomHud",
+        "net.sweenus.simplyskills.items.GraciousManuscript",
+        "net.sweenus.simplyskills.config.BerserkerConfig",
+        "net.sweenus.simplyskills.effects.MelodyOfSafetyEffect",
+        "net.sweenus.simplyskills.client.effects.BarrierRenderer",
+        "net.sweenus.simplyskills.effects.ConsecrateEffect",
+        "net.sweenus.simplyskills.effects.MeteoricWrathEffect",
+        "net.sweenus.simplyskills.config.RangerConfig",
+        "net.sweenus.simplyskills.config.WarriorConfig",
+        "net.sweenus.simplyskills.mixins.client.EntityRenderDispatcherMixin",
+        "net.sweenus.simplyskills.client.effects.OrbitingEffectRenderer",
+        "net.sweenus.simplyskills.effects.RighteousHammersEffect",
+        "net.sweenus.simplyskills.client.effects.ArcaneVolleyRenderer",
+        "net.sweenus.simplyskills.effects.UndyingEffect",
+        "net.sweenus.simplyskills.effects.RagingJavelinEffect",
+        "net.sweenus.simplyskills.config.WayfarerConfig",
+        "net.sweenus.simplyskills.abilities.InitiateAbilities",
+        "net.sweenus.simplyskills.client.effects.FrostVolleyRenderer",
+        "net.sweenus.simplyskills.util.HelperMethods",
+        "net.sweenus.simplyskills.client.renderer.DreadglareRenderer",
+        "net.sweenus.simplyskills.client.ModMenuIntegration",
+        "net.sweenus.simplyskills.client.effects.OrbitingRotatingEffectRenderer$Model",
+        "net.sweenus.simplyskills.network.CooldownPacket",
+        "net.sweenus.simplyskills.events.AmethystImbuementEvent",
+        "net.sweenus.simplyskills.registry.SoundRegistry",
+        "net.sweenus.simplyskills.mixins.PlayerEntityMixin",
+        "net.sweenus.simplyskills.effects.instance.SimplyStatusEffectInstance",
+        "net.sweenus.simplyskills.entities.GreaterDreadglareEntity$1",
+        "net.sweenus.simplyskills.effects.ExhaustionEffect",
+        "net.sweenus.simplyskills.effects.StaticChargeEffect",
+        "net.sweenus.simplyskills.effects.OverloadEffect",
+        "net.sweenus.simplyskills.network.KeybindPacket",
+        "net.sweenus.simplyskills.client.gui.TextureState",
+        "net.sweenus.simplyskills.client.effects.RighteousHammersRenderer",
+        "net.sweenus.simplyskills.client.effects.CurseRenderer",
+        "net.sweenus.simplyskills.mixins.CrossbowItemMixin",
+        "net.sweenus.simplyskills.effects.FireAttunementEffect",
+        "net.sweenus.simplyskills.effects.ElementalArrowsEffect",
+        "net.sweenus.simplyskills.config.ConfigWrapper",
+        "net.sweenus.simplyskills.mixins.client.ArmorFeatureRendererMixin",
+        "net.sweenus.simplyskills.effects.SkywardSunderEffect",
+        "net.sweenus.simplyskills.effects.FrostAttunementEffect",
+        "net.sweenus.simplyskills.effects.SacredOnslaughtEffect",
+        "net.sweenus.simplyskills.abilities.AbilityLogic",
+        "net.sweenus.simplyskills.effects.SpellforgedEffect",
+        "net.sweenus.simplyskills.effects.DeathMarkEffect",
+        "net.sweenus.simplyskills.effects.MarksmanEffect",
+        "net.sweenus.simplyskills.mixins.SpellHelperMixin",
+        "net.sweenus.simplyskills.abilities.NecromancerAbilities",
+        "net.sweenus.simplyskills.client.effects.UndyingParticles",
+        "net.sweenus.simplyskills.entities.DreadglareEntity",
+        "net.sweenus.simplyskills.effects.MelodyOfSwiftnessEffect",
+        "net.sweenus.simplyskills.effects.EarthshakerEffect",
+        "net.sweenus.simplyskills.effects.FanOfBladesEffect",
+        "net.sweenus.simplyskills.abilities.AscendancyAbilities",
+        "net.sweenus.simplyskills.client.renderer.WraithRenderer",
+        "net.sweenus.simplyskills.client.renderer.model.GreaterDreadglareModel",
+        "net.sweenus.simplyskills.effects.MelodyOfWarEffect",
+        "net.sweenus.simplyskills.registry.ItemRegistry",
+        "net.sweenus.simplyskills.effects.FrostVolleyEffect",
+        "net.sweenus.simplyskills.entities.SimplySkillsArrowEntity",
+        "net.sweenus.simplyskills.client.renderer.model.WraithModel",
+        "net.sweenus.simplyskills.effects.LightningAttunementEffect",
+        "net.sweenus.simplyskills.entities.WraithEntity",
+        "net.sweenus.simplyskills.effects.SoulAttunementEffect",
+        "net.sweenus.simplyskills.client.effects.OrbitingRotatingEffectRenderer",
+        "net.sweenus.simplyskills.abilities.RangerAbilities",
+        "net.sweenus.simplyskills.effects.BerserkingEffect",
+        "net.sweenus.simplyskills.effects.LeapSlamEffect",
+        "net.sweenus.simplyskills.effects.PrecisionEffect",
+        "net.sweenus.simplyskills.abilities.ClericAbilities",
+        "net.sweenus.simplyskills.config.WizardConfig",
+        "net.sweenus.simplyskills.effects.GhostwalkEffect",
+        "net.sweenus.simplyskills.effects.RampageEffect",
+        "net.sweenus.simplyskills.config.NecromancerConfig",
+        "net.sweenus.simplyskills.effects.RageEffect",
+        "net.sweenus.simplyskills.effects.ElementalSurgeEffect",
+        "net.sweenus.simplyskills.client.effects.BoneArmorRenderer",
+        "net.sweenus.simplyskills.client.effects.ImmobilizeRenderer",
+        "net.sweenus.simplyskills.client.effects.BladestormRenderer",
+        "net.sweenus.simplyskills.effects.MarksmanshipEffect",
+        "net.sweenus.simplyskills.effects.BoneArmorEffect",
+        "net.sweenus.simplyskills.entities.GreaterDreadglareEntity",
+        "net.sweenus.simplyskills.effects.AgonyEffect",
+        "net.sweenus.simplyskills.effects.SoulshockEffect",
+        "net.sweenus.simplyskills.client.effects.MarksmanshipRenderer",
+        "net.sweenus.simplyskills.abilities.RogueAbilities",
+        "net.sweenus.simplyskills.SimplySkills",
+        "net.sweenus.simplyskills.client.renderer.model.SpellTargetEntityModel",
+        "net.sweenus.simplyskills.effects.ArcaneSlashEffect",
+        "net.sweenus.simplyskills.abilities.BerserkerAbilities",
+        "net.sweenus.simplyskills.effects.MightEffect",
+        "net.sweenus.simplyskills.mixins.SpellProjectileMixin",
+        "net.sweenus.simplyskills.effects.ImmobilizingAuraEffect",
+        "net.sweenus.simplyskills.util.compat.opac.OpacCompat",
+        "net.sweenus.simplyskills.mixins.client.SpellProjectileRendererMixin",
+        "net.sweenus.simplyskills.client.effects.MagicCircleRenderer",
+        "net.sweenus.simplyskills.registry.ModelRegistry",
+        "net.sweenus.simplyskills.effects.TormentEffect",
+        "net.sweenus.simplyskills.abilities.AbilityEffects",
+        "net.sweenus.simplyskills.effects.AnointedEffect",
+        "net.sweenus.simplyskills.client.effects.VitalityBondRenderer",
+        "net.sweenus.simplyskills.mixins.SkillsModMixin",
+        "net.sweenus.simplyskills.mixins.client.PlayerEntityRendererMixin",
+        "net.sweenus.simplyskills.effects.ImmobilizeEffect",
+        "net.sweenus.simplyskills.config.ClericConfig",
+        "net.sweenus.simplyskills.effects.CyclonicCleaveEffect",
+        "net.sweenus.simplyskills.effects.ArcaneAttunementEffect",
+        "net.sweenus.simplyskills.config.SpellbladeConfig",
+        "net.sweenus.simplyskills.entities.SpellTargetEntity"
+      ],
+      "token_hits": [
+        {
+          "class": "net.sweenus.simplyskills.registry.EntityRegistry",
+          "tokens": [
+            "getEntity"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.effects.BullrushEffect",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.abilities.WarriorAbilities",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.abilities.compat.SimplySwordsRequiredMethods",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.client.SimplySkillsClient",
+          "tokens": [
+            "getEntity"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.abilities.ProminenceAbilities",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.util.DynamicDamage",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.mixins.ServerPlayerEntityMixin",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.mixins.ExternalSpellSchoolsMixin",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.client.renderer.SpellTargetEntityRenderer",
+          "tokens": [
+            "getEntity"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.effects.ShadowAuraEffect",
+          "tokens": [
+            "owner",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.effects.ConsecrateEffect",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.abilities.InitiateAbilities",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.util.HelperMethods",
+          "tokens": [
+            "owner",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.registry.SoundRegistry",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.effects.StaticChargeEffect",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.effects.OverloadEffect",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.effects.SkywardSunderEffect",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.effects.SacredOnslaughtEffect",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.abilities.AbilityLogic",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.abilities.NecromancerAbilities",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.entities.DreadglareEntity",
+          "tokens": [
+            "owner",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.effects.EarthshakerEffect",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.entities.SimplySkillsArrowEntity",
+          "tokens": [
+            "DamageSource"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.entities.WraithEntity",
+          "tokens": [
+            "owner",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.effects.LeapSlamEffect",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.abilities.ClericAbilities",
+          "tokens": [
+            "owner",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.effects.GhostwalkEffect",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.entities.GreaterDreadglareEntity",
+          "tokens": [
+            "owner",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.client.renderer.model.SpellTargetEntityModel",
+          "tokens": [
+            "getEntity"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.effects.ImmobilizeEffect",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.effects.CyclonicCleaveEffect",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.sweenus.simplyskills.entities.SpellTargetEntity",
+          "tokens": [
+            "getEntity"
+          ]
+        }
+      ]
+    }
+  ],
+  "Sortilege": [
+    {
+      "path": "/data/compose/13/docker/servers/50a6d163-0309-4832-986f-106668768b3d/mods/Sortilege-1.20.1-9.0.jar",
+      "metadata": {
+        "fabric.mod.json": "{\n  \"schemaVersion\": 1,\n  \"id\": \"sortilege\",\n  \"version\": \"9.0\",\n  \"name\": \"Sortilege\",\n  \"description\": \"Simple magic staffs, enchanting and brewing tweaks, and more!\",\n  \"authors\": [\n    \"Lyof\"\n  ],\n  \"contact\": {\n    \"homepage\": \"https://www.curseforge.com/minecraft/mc-mods/sortilege\",\n    \"sources\": \"https://github.com/infernalstudios/Sortilege/tree/1.20\"\n  },\n  \"license\": \"CC0-1.0\",\n  \"icon\": \"assets/sortilege/icon.png\",\n  \"environment\": \"*\",\n  \"entrypoints\": {\n    \"main\": [\n      \"net.lyof.sortilege.Sortilege\"\n    ],\n    \"mm:early_risers\": [\n      \"net.lyof.sortilege.setup.asm.EarlyRiser\"\n    ],\n    \"client\": [\n      \"net.lyof.sortilege.SortilegeClient\"\n    ],\n    \"emi\": [\n      \"net.lyof.sortilege.recipe.EmiCompat\"\n    ]\n  },\n  \"mixins\": [\n    \"sortilege.mixins.json\"\n  ],\n  \"accessWidener\": \"sortilege.accesswidener\",\n  \"depends\": {\n    \"fabricloader\": \"\\u003e\\u003d0.15.11\",\n    \"minecraft\": \"~1.20.1\",\n    \"java\": \"\\u003e\\u003d17\",\n    \"fabric-api\": \"*\",\n    \"sollib\": \"*\"\n  },\n  \"suggests\": {\n    \"phantasm\": \"*\",\n    \"emi\": \"*\"\n  },\n  \"jars\": [\n    {\n      \"file\": \"META-INF/jars/Fabric-ASM-v2.3.jar\"\n    }\n  ]\n}",
+        "META-INF/MANIFEST.MF": "Manifest-Version: 1.0\r\nFabric-Jar-Type: classes\r\nFabric-Loom-Mixin-Remap-Type: static\r\nFabric-Gradle-Version: 9.4.1\r\nFabric-Loom-Version: 1.16.3\r\nFabric-Mixin-Compile-Extensions-Version: 0.6.0\r\nFabric-Minecraft-Version: 1.20.1\r\nFabric-Tiny-Remapper-Version: 0.13.0\r\nFabric-Loader-Version: 0.19.3\r\nFabric-Mixin-Version: 0.17.3+mixin.0.8.7\r\nFabric-Mixin-Group: net.fabricmc\r\nFabric-Mapping-Namespace: intermediary\r\n\r\n"
+      },
+      "candidate_classes": [
+        "net.lyof.sortilege.item.custom.staff.AffinityStaffItem$Effects",
+        "net.lyof.sortilege.item.custom.staff.BotaniaStaffItem$Effects",
+        "net.lyof.sortilege.item.custom.staff.ElectroblobStaffItem$Effects",
+        "net.lyof.sortilege.item.custom.staff.GoetyStaffItem$Effects",
+        "net.lyof.sortilege.item.custom.staff.SpellEngineStaffItem$Cost",
+        "net.lyof.sortilege.item.custom.staff.SpellEngineStaffItem$Effects",
+        "net.lyof.sortilege.item.custom.staff.SpellEngineStaffItem$Reader",
+        "net.lyof.sortilege.item.custom.staff.SpellEngineStaffItem",
+        "net.lyof.sortilege.item.staff.StaffEntry$Effects",
+        "net.lyof.sortilege.item.staff.entry.WeatheringStaffReader$Effects",
+        "net.lyof.sortilege.mixin.DamageEnchantmentMixin",
+        "net.lyof.sortilege.mixin.DamageSourcesMixin",
+        "net.lyof.sortilege.mixin.ExperienceOrbMixin",
+        "net.lyof.sortilege.mixin.SpellInfinityEnchantmentMixin",
+        "net.lyof.sortilege.mixin.accessor.MobEffectInstanceAccessor"
+      ],
+      "token_hits": [
+        {
+          "class": "net.lyof.sortilege.attribute.ModAttributes",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.lyof.sortilege.item.custom.AStaffItem",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.lyof.sortilege.item.custom.staff.AffinityStaffItem$Effects",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.lyof.sortilege.item.custom.staff.AffinityStaffItem",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.lyof.sortilege.item.custom.staff.BotaniaStaffItem",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.lyof.sortilege.item.custom.staff.ElectroblobStaffItem",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.lyof.sortilege.item.custom.staff.GoetyStaffItem$Reader",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.lyof.sortilege.item.custom.staff.GoetyStaffItem",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.lyof.sortilege.item.custom.staff.SpellEngineStaffItem",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.lyof.sortilege.item.potion.CustomPotionData",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "net.lyof.sortilege.item.staff.StaffTier",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.lyof.sortilege.mixin.DamageSourcesMixin",
+          "tokens": [
+            "DamageSource"
+          ]
+        },
+        {
+          "class": "net.lyof.sortilege.mixin.LivingEntityMixin",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.lyof.sortilege.mixin.PlayerMixin",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.lyof.sortilege.mixin.client.ItemStackMixin",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.lyof.sortilege.setup.ModConfig",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.lyof.sortilege.setup.ModRuntime$Client",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.lyof.sortilege.setup.ModTags$Items",
+          "tokens": [
+            "damage"
+          ]
+        }
+      ]
+    }
+  ],
+  "Soulslike Weaponry": [
+    {
+      "path": "/data/compose/13/docker/servers/50a6d163-0309-4832-986f-106668768b3d/mods/soulslike-weaponry-1.3.1-1.20.1-fabric.jar",
+      "metadata": {
+        "fabric.mod.json": "{\n  \"schemaVersion\": 1,\n  \"id\": \"soulsweapons\",\n  \"version\": \"1.3.1-1.20.1-fabric\",\n\n  \"name\": \"Marium's Soulslike Weaponry\",\n  \"description\": \"Adds lots of legendary weapons and bosses!\",\n  \"authors\": [\n    \"Marium\"\n  ],\n  \"contact\": {\n    \"homepage\": \"https://www.curseforge.com/minecraft/mc-mods/mariums-soulslike-weaponry\",\n    \"issues\": \"https://github.com/mariumbacchus/Soulslike-Weaponry/issues\"\n  },\n\n  \"license\": \"CC0-1.0\",\n  \"icon\": \"assets/soulsweapons/icon.png\",\n\n  \"environment\": \"*\",\n  \"entrypoints\": {\n    \"fabric-datagen\": [\n      \"net.soulsweaponry.datagen.DataGeneration\"\n    ],\n    \"main\": [\n      \"net.soulsweaponry.SoulsWeaponry\"\n    ],\n    \"client\": [\n      \"net.soulsweaponry.client.SoulsWeaponryClient\"\n    ]\n  },\n  \"mixins\": [\n    \"soulsweapons.mixins.json\"\n  ],\n\n  \"depends\": {\n    \"fabric-key-binding-api-v1\": \"*\",\n    \"fabricloader\": \">=0.16.10\",\n    \"fabric\": \"*\",\n    \"minecraft\": \"~1.20.1\",\n    \"java\": \">=17\",\n    \"fabric-api\": \">=0.92.2\",\n    \"geckolib\": \">=4.7\",\n    \"attributefix\": \">=21.0.4\",\n    \"ranged_weapon_api\": \">=1.1.2\"\n  }\n}\n",
+        "META-INF/MANIFEST.MF": "Manifest-Version: 1.0\r\nFabric-Jar-Type: classes\r\nFabric-Loom-Mixin-Remap-Type: mixin\r\nFabric-Gradle-Version: 8.11\r\nFabric-Loom-Version: 1.9.2\r\nFabric-Mixin-Compile-Extensions-Version: 0.6.0\r\nFabric-Minecraft-Version: 1.20.1\r\nFabric-Tiny-Remapper-Version: 0.10.4\r\nFabric-Loader-Version: 0.16.10\r\nFabric-Mixin-Version: 0.15.4+mixin.0.8.7\r\nFabric-Mixin-Group: net.fabricmc\r\nFabric-Mapping-Namespace: intermediary\r\n\r\n"
+      },
+      "candidate_classes": [
+        "net.soulsweaponry.client.hud.EffectHudOverlay",
+        "net.soulsweaponry.client.model.entity.projectile.BlackflameExplosionEntityModel",
+        "net.soulsweaponry.client.model.entity.projectile.CannonballModel",
+        "net.soulsweaponry.client.model.entity.projectile.ChaosOrbModel",
+        "net.soulsweaponry.client.model.entity.projectile.ChargedArrowModelUnused",
+        "net.soulsweaponry.client.model.entity.projectile.ChungusHeadModel",
+        "net.soulsweaponry.client.model.entity.projectile.CometSpearModel",
+        "net.soulsweaponry.client.model.entity.projectile.DarkMoonProjectileModel",
+        "net.soulsweaponry.client.model.entity.projectile.DragonslayerSwordspearModel",
+        "net.soulsweaponry.client.model.entity.projectile.DraupnirSpearEntityModel",
+        "net.soulsweaponry.client.model.entity.projectile.FlamePillarModel",
+        "net.soulsweaponry.client.model.entity.projectile.GhostGlaiveModel",
+        "net.soulsweaponry.client.model.entity.projectile.GrowingFireballModel",
+        "net.soulsweaponry.client.model.entity.projectile.HolyMoonlightPillarModel",
+        "net.soulsweaponry.client.model.entity.projectile.LeviathanAxeEntityModel",
+        "net.soulsweaponry.client.model.entity.projectile.MjolnirProjectileModel",
+        "net.soulsweaponry.client.model.entity.projectile.MoltenMetalModel",
+        "net.soulsweaponry.client.model.entity.projectile.MoonlightProjectileBigModel",
+        "net.soulsweaponry.client.model.entity.projectile.MoonlightProjectileModel",
+        "net.soulsweaponry.client.model.entity.projectile.MoonveilWaveModel",
+        "net.soulsweaponry.client.model.entity.projectile.NightSkullModel",
+        "net.soulsweaponry.client.model.entity.projectile.NightsEdgeModel",
+        "net.soulsweaponry.client.model.entity.projectile.NightsEdgeOldModel",
+        "net.soulsweaponry.client.model.entity.projectile.ShadowOrbModel",
+        "net.soulsweaponry.client.model.entity.projectile.SilverBulletModel",
+        "net.soulsweaponry.client.model.entity.projectile.SunlightProjectileBigModel",
+        "net.soulsweaponry.client.model.entity.projectile.SunlightProjectileSmallModel",
+        "net.soulsweaponry.client.model.entity.projectile.VerticalMoonlightProjectileModel",
+        "net.soulsweaponry.client.model.entity.projectile.VerticalSunlightProjectileModel",
+        "net.soulsweaponry.client.renderer.entity.projectile.BlackflameExplosionEntityRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.BulletRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.CannonballRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.ChaosOrbRenderer$ChaosOrbColorLayer",
+        "net.soulsweaponry.client.renderer.entity.projectile.ChaosOrbRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.ChargedArrowRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.ChungusHeadRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.CometSpearRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.DragonslayerSwordspearRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.DraupnirSpearEntityRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.FlamePillarRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.FrozenLightningRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.GeoProjectileRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.GhostGlaiveRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.GrowingFireballRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.HolyMoonlightPillarRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.KrakenSlayerProjectileRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.LeviathanAxeEntityRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.MjolnirProjectileRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.MoltenMetalRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.MoonlightArrowRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.MoonlightProjectileRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.MoonveilWaveRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.NightSkullRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.NightsEdgeOldRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.NightsEdgeRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.ShadowOrbRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.SilverArrowRenderer",
+        "net.soulsweaponry.client.renderer.entity.projectile.SilverBulletRenderer",
+        "net.soulsweaponry.entity.AreaEffectSphere",
+        "net.soulsweaponry.entity.ai.goal.AccursedLordGoal$BarrageProjectiles",
+        "net.soulsweaponry.entity.effect.BladeDance",
+        "net.soulsweaponry.entity.effect.Bleed",
+        "net.soulsweaponry.entity.effect.Bloodthirsty",
+        "net.soulsweaponry.entity.effect.ChungusTonic",
+        "net.soulsweaponry.entity.effect.Decay",
+        "net.soulsweaponry.entity.effect.Fear",
+        "net.soulsweaponry.entity.effect.Freezing",
+        "net.soulsweaponry.entity.effect.FrostMoon",
+        "net.soulsweaponry.entity.effect.HallowedDragonMist",
+        "net.soulsweaponry.entity.effect.LifeLeach",
+        "net.soulsweaponry.entity.effect.PostureBreak",
+        "net.soulsweaponry.entity.effect.Stormveil",
+        "net.soulsweaponry.entity.effect.VeilOfFire",
+        "net.soulsweaponry.entity.mobs.ChaosMonarch$Attack",
+        "net.soulsweaponry.entity.mobs.DarkSorcerer$BeamTargetGoal",
+        "net.soulsweaponry.entity.mobs.DayStalker$Attacks",
+        "net.soulsweaponry.entity.mobs.NightProwler$Attacks",
+        "net.soulsweaponry.entity.mobs.NightShade$AttackStates",
+        "net.soulsweaponry.entity.mobs.WitheredDemon$DemonAttackGoal",
+        "net.soulsweaponry.entity.projectile.Cannonball",
+        "net.soulsweaponry.entity.projectile.ChaosOrbEntity",
+        "net.soulsweaponry.entity.projectile.ChaosSkull",
+        "net.soulsweaponry.entity.projectile.CometSpearEntity",
+        "net.soulsweaponry.entity.projectile.DragonStaffProjectile",
+        "net.soulsweaponry.entity.projectile.DragonslayerSwordspearEntity",
+        "net.soulsweaponry.entity.projectile.DraupnirSpearEntity",
+        "net.soulsweaponry.entity.projectile.GrowingFireball",
+        "net.soulsweaponry.entity.projectile.IPostureLossProjectile",
+        "net.soulsweaponry.entity.projectile.LeviathanAxeEntity",
+        "net.soulsweaponry.entity.projectile.MjolnirProjectile",
+        "net.soulsweaponry.entity.projectile.ModPersistentProjectile",
+        "net.soulsweaponry.entity.projectile.MoonlightProjectile",
+        "net.soulsweaponry.entity.projectile.NightSkull",
+        "net.soulsweaponry.entity.projectile.NightsEdge",
+        "net.soulsweaponry.entity.projectile.NoDragWitherSkull",
+        "net.soulsweaponry.entity.projectile.NonArrowProjectile",
+        "net.soulsweaponry.entity.projectile.ReturningProjectile",
+        "net.soulsweaponry.entity.projectile.ShadowOrb",
+        "net.soulsweaponry.entity.projectile.SilverBulletEntity",
+        "net.soulsweaponry.entity.projectile.UntargetableFireball",
+        "net.soulsweaponry.entity.projectile.WitheredWabbajackProjectile$CollisionEffect",
+        "net.soulsweaponry.entity.projectile.WitheredWabbajackProjectile$EntityHitEffect",
+        "net.soulsweaponry.entity.projectile.WitheredWabbajackProjectile",
+        "net.soulsweaponry.entity.projectile.arrow.ChargedArrow",
+        "net.soulsweaponry.entity.projectile.arrow.ModArrow",
+        "net.soulsweaponry.entity.projectile.arrow.MoonlightArrow",
+        "net.soulsweaponry.entity.projectile.arrow.SilverArrow",
+        "net.soulsweaponry.entity.projectile.arrow.TrueDamageArrow",
+        "net.soulsweaponry.entity.projectile.noclip.AbsorbedProjectilesOrb",
+        "net.soulsweaponry.entity.projectile.noclip.AirCombustion",
+        "net.soulsweaponry.entity.projectile.noclip.ArrowStormEntity",
+        "net.soulsweaponry.entity.projectile.noclip.BlackflameExplosionEntity",
+        "net.soulsweaponry.entity.projectile.noclip.BlackflameSnakeEntity",
+        "net.soulsweaponry.entity.projectile.noclip.DamagingNoClipEntity",
+        "net.soulsweaponry.entity.projectile.noclip.DamagingWarmupEntity",
+        "net.soulsweaponry.entity.projectile.noclip.DamagingWarmupEntityEvents$OtherAttributes",
+        "net.soulsweaponry.entity.projectile.noclip.DamagingWarmupEntityEvents",
+        "net.soulsweaponry.entity.projectile.noclip.FlamePillar",
+        "net.soulsweaponry.entity.projectile.noclip.FogEntity",
+        "net.soulsweaponry.entity.projectile.noclip.FrozenLightning",
+        "net.soulsweaponry.entity.projectile.noclip.GhostGlaiveEntity",
+        "net.soulsweaponry.entity.projectile.noclip.HolyMoonlightPillar",
+        "net.soulsweaponry.entity.projectile.noclip.MoltenMetal",
+        "net.soulsweaponry.entity.projectile.noclip.MoonveilWave$MoonveilTextures",
+        "net.soulsweaponry.entity.projectile.noclip.MoonveilWave",
+        "net.soulsweaponry.entity.projectile.noclip.NightWaveEntity",
+        "net.soulsweaponry.entity.projectile.noclip.NoClipEntity",
+        "net.soulsweaponry.entity.projectile.noclip.NoClipWarmupEntity",
+        "net.soulsweaponry.entity.projectile.noclip.WarmupLightningEntity",
+        "net.soulsweaponry.entity.util.RandomSummonPos",
+        "net.soulsweaponry.entitydata.FreyrSwordSummonData",
+        "net.soulsweaponry.entitydata.ReturningProjectileData",
+        "net.soulsweaponry.entitydata.SummonsData",
+        "net.soulsweaponry.items.ChaosOrb",
+        "net.soulsweaponry.items.IShootModProjectile",
+        "net.soulsweaponry.items.ISummonAllies",
+        "net.soulsweaponry.mixin.ArrowItemMixin",
+        "net.soulsweaponry.mixin.DamageSourcesMixin",
+        "net.soulsweaponry.networking.C2S.CollectSummonsC2S",
+        "net.soulsweaponry.networking.S2C.FreyrSwordSummonDataSyncS2C",
+        "net.soulsweaponry.networking.S2C.ReturningProjectileDataSyncS2C",
+        "net.soulsweaponry.networking.S2C.ShouldDamageRidingSyncS2C",
+        "net.soulsweaponry.networking.S2C.SummonUUIDsSyncS2C",
+        "net.soulsweaponry.networking.S2C.UTDamageCooldownSyncS2C",
+        "net.soulsweaponry.registry.EffectRegistry$DefaultStatusEffect",
+        "net.soulsweaponry.registry.EffectRegistry",
+        "net.soulsweaponry.util.CustomDamageSource",
+        "net.soulsweaponry.util.ModTags$Effects",
+        "net.soulsweaponry.util.ModifyDamageUtil"
+      ],
+      "token_hits": [
+        {
+          "class": "net.soulsweaponry.api.entitystats.EntityBleed",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.api.entitystats.EntityStats",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.api.entitystats.EntityStatsUtil",
+          "tokens": [
+            "getEntity"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.config.ConfigConstructor",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.AreaEffectSphere",
+          "tokens": [
+            "getOwner",
+            "setOwner",
+            "owner"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.ai.goal.AccursedLordGoal",
+          "tokens": [
+            "DamageSource",
+            "getAttacker",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.ai.goal.ChaosMonarchGoal",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.ai.goal.DayStalkerGoal",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.ai.goal.DraugrBossGoal",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.ai.goal.FreyrSwordGoal",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.ai.goal.MoonknightGoal",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.ai.goal.NightProwlerGoal",
+          "tokens": [
+            "setOwner",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.ai.goal.NightShadeGoal",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.ai.goal.ReturningKnightGoal",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.effect.ChungusTonic",
+          "tokens": [
+            "getEntity"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.effect.HallowedDragonMist",
+          "tokens": [
+            "DamageSource"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.mobs.AccursedLordBoss",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.mobs.BossEntity",
+          "tokens": [
+            "getAttacker"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.mobs.DayStalker",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.mobs.DraugrBoss",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.mobs.FreyrSwordEntity",
+          "tokens": [
+            "owner",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.mobs.FrostGiant",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.mobs.Moonknight",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.mobs.NightShade$ShadeMoveControl",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.mobs.NightShade",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.mobs.RimeSpectre$SpectreMoveControl",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.mobs.Soulmass",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.mobs.WarmthEntity",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.mobs.WitheredDemon",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.Cannonball",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.ChaosSkull",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.CometSpearEntity",
+          "tokens": [
+            "owner",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.DragonStaffProjectile",
+          "tokens": [
+            "setOwner"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.DragonslayerSwordspearEntity",
+          "tokens": [
+            "owner",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.DraupnirSpearEntity",
+          "tokens": [
+            "owner",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.GrowingFireball",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.LeviathanAxeEntity",
+          "tokens": [
+            "owner",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.MjolnirProjectile",
+          "tokens": [
+            "owner",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.ModPersistentProjectile",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.MoonlightProjectile",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.NightSkull",
+          "tokens": [
+            "setOwner"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.NightsEdge",
+          "tokens": [
+            "getOwner",
+            "setOwner",
+            "owner",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.NonArrowProjectile",
+          "tokens": [
+            "owner",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.ReturningProjectile",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.ShadowOrb",
+          "tokens": [
+            "DamageSource",
+            "owner"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.SilverBulletEntity",
+          "tokens": [
+            "owner",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.UntargetableFireball",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.WitheredWabbajackProjectile",
+          "tokens": [
+            "getEntity",
+            "owner"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.arrow.ChargedArrow",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.arrow.ModArrow",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.arrow.MoonlightArrow",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.arrow.SilverArrow",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.arrow.TrueDamageArrow",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.noclip.AbsorbedProjectilesOrb",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.noclip.AirCombustion",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.noclip.DamagingNoClipEntity",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.noclip.DamagingWarmupEntity",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.noclip.FlamePillar",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.noclip.GhostGlaiveEntity",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.noclip.MoltenMetal",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.noclip.MoonveilWave",
+          "tokens": [
+            "owner"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entity.projectile.noclip.NightWaveEntity",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.entitydata.UmbralTrespassData",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.BladeDanceItem",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.ICooldownItem",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.IDetonateGround",
+          "tokens": [
+            "DamageSource"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.TestItem",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.TrickWeapon",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.abilities.ChainLightning",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.abilities.FireThorns",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.abilities.StormveilThorns",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.armor.Arkenplate",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.armor.ChaosCrown",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.armor.ChaosHelmet",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.armor.ChaosRobes",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.armor.ForlornArmor",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.armor.Hallowheart",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.armor.SoulIngotArmor",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.armor.SoulRobesArmor",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.axe.LeviathanAxe",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.bow.DarkmoonLongbow",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.bow.Galeforce",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.bow.KrakenSlayer",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.bow.SimonsBowblade",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.crossbow.KrakenSlayerCrossbow",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.gun.Blunderbuss",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.gun.GatlingGun",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.gun.GunItem",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.gun.HunterCannon",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.gun.HunterPistol",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.hammer.Kirkhammmer",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.hammer.Mjolnir",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.hammer.Nightfall",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.hammer.Supernova",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.hammer.Tonitrus",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.katana.Bloodlust",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.katana.Dragonbane",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.katana.Moonveil",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.scythe.DarkinScythePre",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.scythe.DarkinScythePrime",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.scythe.ForlornScythe",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.scythe.ShadowAssassinScythe",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.scythe.SoulReaper",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.spear.CometSpear",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.spear.DragonslayerSwordspear",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.spear.DraupnirSpear",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.spear.GlaiveOfHodir",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.staff.ChungusStaff",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.staff.DragonStaff",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.staff.WitheredWabbajack",
+          "tokens": [
+            "getEntity",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.AbstractDawnbreaker",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.Bloodthirster",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.BluemoonGreatsword",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.BluemoonShortsword",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.CrucibleSword",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.DarkMoonGreatsword",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.DarkinBlade",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.Dawnbreaker",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.DragonslayerSwordBerserk",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.Draugr",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.EmpoweredDawnbreaker",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.Excalibur",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.Featherlight",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.FreyrSword",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.Frostmourne",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.GuinsoosRageblade",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.HolyMoonlightGreatsword",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.HolyMoonlightSword",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.LichBane",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.MasterSword",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.MehrunesRazor",
+          "tokens": [
+            "getEntity",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.MoonlightGreatsword",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.MoonlightShortsword",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.NightsEdgeItem",
+          "tokens": [
+            "setOwner",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.PureMoonlightGreatsword",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.Skofnung",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.Sting",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.items.sword.WhirligigSawblade",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.mixin.DamageSourcesMixin",
+          "tokens": [
+            "DamageSource"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.mixin.EnchantmentHelperMixin",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.mixin.LivingEntityMixin",
+          "tokens": [
+            "DamageSource",
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.mixin.PlayerEntityMixin",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.networking.C2S.DamagingBoxC2S",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.networking.PacketHelper",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.networking.PacketIds",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.networking.S2C.ShouldDamageRidingSyncS2C",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.networking.S2C.UTDamageCooldownSyncS2C",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.registry.AttributeRegistry",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.registry.SoundRegistry",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.registry.WeaponRegistry",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.util.CustomDamageSource",
+          "tokens": [
+            "DamageSource"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.util.ModTags$Effects",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.util.ModifyDamageUtil",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.util.TooltipUtil",
+          "tokens": [
+            "damage"
+          ]
+        },
+        {
+          "class": "net.soulsweaponry.util.WeaponUtil",
+          "tokens": [
+            "getEntity"
+          ]
+        }
+      ]
+    }
+  ]
+}

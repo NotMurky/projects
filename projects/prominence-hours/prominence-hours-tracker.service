@@ -1,0 +1,30 @@
+[Unit]
+Description=Prominence active (non-AFK) playtime tracker
+After=network-online.target prominence-updater.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=<USERNAME_REDACTED>
+Group=<USERNAME_REDACTED>
+WorkingDirectory=/home/<USERNAME_REDACTED>/prominence-hours
+ExecStart=/usr/bin/python3 /home/<USERNAME_REDACTED>/prominence-hours/tracker.py
+Restart=on-failure
+RestartSec=10
+Environment=RCON_HOST=<INTERNAL_IP_REDACTED>.11
+Environment=RCON_PORT=25575
+Environment=RCON_PASSWORD_FILE=/home/<USERNAME_REDACTED>/prominence-hours/rcon.pass
+Environment=HOURS_DB=/home/<USERNAME_REDACTED>/prominence-hours/hours.db
+Environment=POLL_INTERVAL=20
+Environment=AFK_THRESHOLD=300
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/<USERNAME_REDACTED>/prominence-hours
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+LockPersonality=true
+
+[Install]
+WantedBy=multi-user.target

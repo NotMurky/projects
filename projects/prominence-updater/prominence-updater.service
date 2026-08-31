@@ -1,0 +1,40 @@
+[Unit]
+Description=Prominence II Update Console (inspect/stage/apply)
+After=network-online.target docker.service
+Wants=network-online.target
+Requires=docker.service
+
+[Service]
+Type=simple
+User=<USERNAME_REDACTED>
+Group=<USERNAME_REDACTED>
+WorkingDirectory=/home/<USERNAME_REDACTED>/prominence-updater
+ExecStart=/usr/bin/python3 /home/<USERNAME_REDACTED>/prominence-updater/app.py
+Restart=on-failure
+RestartSec=5
+Environment=PROMINENCE_UPDATER_BIND=<INTERNAL_IP_REDACTED>.11
+Environment=PROMINENCE_UPDATER_PORT=8789
+Environment=PROMINENCE_UPDATER_CONFIG=/home/<USERNAME_REDACTED>/prominence-updater/state.json
+Environment=PROMINENCE_UPDATER_STAGING=/home/<USERNAME_REDACTED>/prominence-updater/staging
+Environment=PROMINENCE_UPDATER_BACKUPS=/home/<USERNAME_REDACTED>/prominence-updater/backups
+Environment=CRAFTY_BASE=https://<INTERNAL_IP_REDACTED>.11:8443
+Environment=CRAFTY_SERVER_ID=50a6d163-0309-4832-986f-106668768b3d
+Environment=CRAFTY_TOKEN_FILE=/etc/prominence-daily-restart.token
+Environment=PROMINENCE_ROOT=/data/compose/13/docker/servers/50a6d163-0309-4832-986f-106668768b3d
+Environment=VELOCITY_MAINTENANCE_CONFIG=/data/compose/13/docker/servers/43ac65de-795f-443f-9cc5-2aecc7447a05/plugins/maintenance/config.yml
+Environment=MINIMOTD_MAIN_CONF=/data/compose/13/docker/servers/43ac65de-795f-443f-9cc5-2aecc7447a05/plugins/minimotd-velocity/main.conf
+Environment=OVERLAY_DIR_NAME=Dontdeleteimportantmods
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+LockPersonality=true
+RestrictSUIDSGID=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+CapabilityBoundingSet=
+SystemCallArchitectures=native
+
+[Install]
+WantedBy=multi-user.target

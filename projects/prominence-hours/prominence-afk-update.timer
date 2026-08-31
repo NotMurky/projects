@@ -1,0 +1,12 @@
+[Unit]
+Description=Check every 30s for an empty Prominence server to apply AFK update
+
+[Timer]
+OnBootSec=30s
+OnUnitActiveSec=30s
+AccuracySec=2s
+Persistent=true
+Unit=prominence-afk-update.service
+
+[Install]
+WantedBy=timers.target

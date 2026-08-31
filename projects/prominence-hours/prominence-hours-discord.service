@@ -1,0 +1,27 @@
+[Unit]
+Description=Personal Discord bot /hours handler for Prominence
+After=network-online.target prominence-hours-tracker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=<USERNAME_REDACTED>
+Group=<USERNAME_REDACTED>
+WorkingDirectory=/home/<USERNAME_REDACTED>/prominence-hours
+ExecStart=/home/<USERNAME_REDACTED>/jarvis-discord-relay/.venv/bin/python /home/<USERNAME_REDACTED>/prominence-hours/hours_discord_rest.py
+Restart=on-failure
+RestartSec=15
+Environment=HOURS_DB=/home/<USERNAME_REDACTED>/prominence-hours/hours.db
+Environment=VELOCITY_DISCORD_CONFIG=/data/compose/13/docker/servers/43ac65de-795f-443f-9cc5-2aecc7447a05/plugins/discord/config.toml
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/<USERNAME_REDACTED>/prominence-hours
+ReadOnlyPaths=/data/compose/13/docker/servers/43ac65de-795f-443f-9cc5-2aecc7447a05/plugins/discord/config.toml
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+LockPersonality=true
+
+[Install]
+WantedBy=multi-user.target
